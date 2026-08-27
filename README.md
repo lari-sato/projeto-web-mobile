@@ -1,5 +1,13 @@
 # 📘 Reforço Comunitário
 
+## 👥 Integrantes
+- Beatriz Lima de Oliveira
+- Giovana Simões Franco
+- Julia Santos Oliveira
+- Larissa Yuri Sato
+
+---
+
 ## 📖 Sobre o Projeto
 O **Reforço Comunitário** é uma plataforma web gratuita que conecta **instrutores voluntários** e **alunos** que precisam de apoio educacional.  
 O objetivo é democratizar o acesso ao reforço escolar, fortalecendo comunidades e promovendo **educação inclusiva, solidária e contínua**.
