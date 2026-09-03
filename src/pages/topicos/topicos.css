@@ -1,0 +1,140 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.container {
+  width: 100%;
+  max-width: 500px;
+  background-color: #ffffff;
+  border: 1px solid #dcdcdc;
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.header {
+  background-color: #dcdcdc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+}
+
+.search-bar {
+  width: 60%;
+  max-width: 220px;
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 4px 10px;
+  border: 1px solid #cccccc;
+}
+
+.search-bar input {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 11px;
+  color: #666;
+}
+
+.content {
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #222;
+  margin-bottom: 6px;
+}
+
+.subtitle {
+  font-size: 12px;
+  color: #888;
+  margin-bottom: 28px;
+}
+
+.topics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 30px;
+}
+
+.topic-checkbox {
+  display: none;
+}
+
+.topic-card {
+  border: 1px solid #777777;
+  border-radius: 6px;
+  padding: 8px;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.2s ease;
+}
+
+.topic-card:hover {
+  border-color: #000000;
+}
+
+.image-placeholder {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background-color: #dcdcdc;
+  margin-bottom: 8px;
+  border-radius: 2px;
+  transition: background-color 0.2s ease;
+}
+
+.topic-label {
+  font-size: 10px;
+  color: #333;
+  font-weight: 600;
+}
+
+.topic-checkbox:checked + .topic-card {
+  border: 2px solid #000000;
+  background-color: #f0f0f0;
+  transform: scale(0.98);
+}
+
+.topic-checkbox:checked + .topic-card .image-placeholder {
+  background-color: #b0b0b0;
+}
+
+.btn-submit {
+  background-color: #cccccc;
+  border: 1px solid #999999;
+  border-radius: 4px;
+  padding: 10px 24px;
+  font-size: 13px;
+  font-weight: bold;
+  color: #222;
+  cursor: pointer;
+}
+
+.btn-submit:hover {
+  background-color: #bbbbbb;
+}
