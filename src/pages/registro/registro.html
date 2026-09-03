@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wireframe - Cadastro</title>
+  <link rel="stylesheet" href="registro.css">
+</head>
+<body>
+
+  <div class="container">
+    <!-- Top Bar Header -->
+    <header class="header"></header>
+
+    <!-- Main Content -->
+    <main class="content">
+      <h1 class="title">Registre-se já!</h1>
+      <p class="subtitle">Já possui uma conta? <a href="#">Entrar.</a></p>
+
+      <form class="form">
+        <!-- Usuário -->
+        <div class="form-group">
+          <label for="usuario">USUÁRIO</label>
+          <input type="text" id="usuario" name="usuario">
+        </div>
+
+        <!-- E-mail -->
+        <div class="form-group">
+          <label for="email">E-MAIL</label>
+          <input type="email" id="email" name="email">
+        </div>
+
+        <!-- Senha -->
+        <div class="form-group">
+          <label for="senha">SENHA</label>
+          <input type="password" id="senha" name="senha">
+        </div>
+
+        <!-- Função -->
+        <div class="form-group">
+          <label>FUNÇÃO (SELECIONE UMA OU MAIS)</label>
+          
+          <label class="checkbox-card">
+            <span>ALUNO(A)</span>
+            <input type="checkbox" name="funcao" value="aluno">
+          </label>
+
+          <label class="checkbox-card">
+            <span>INSTRUTOR(A)</span>
+            <input type="checkbox" name="funcao" value="instrutor">
+          </label>
+        </div>
+
+        <!-- Botão OK -->
+        <button type="submit" class="btn-submit">OK</button>
+      </form>
+    </main>
+  </div>
+
+</body>
+</html>
