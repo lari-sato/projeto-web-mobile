@@ -24,14 +24,12 @@
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
   }
   
-  /* Top Header Bar */
   .header {
     background-color: #e0e0e0;
     height: 35px;
     width: 100%;
   }
   
-  /* Content Area */
   .content {
     padding: 40px 20px 50px;
     display: flex;
@@ -57,7 +55,6 @@
     text-decoration: underline;
   }
   
-  /* Form Layout */
   .form {
     width: 100%;
     max-width: 240px;
@@ -90,7 +87,6 @@
     outline: none;
   }
   
-  /* Checkbox Cards */
   .checkbox-card {
     display: flex !important;
     flex-direction: row !important;
@@ -125,7 +121,6 @@
     border-color: #000000;
   }
   
-  /* OK Button */
   .btn-submit {
     width: 90px;
     height: 36px;
