@@ -4,6 +4,10 @@
     text-decoration: underline;
 }
 
+.subtitle a:hover {
+    color: #bdbdbd;
+}
+
 .form {
     width: 351px;
     margin: 0 auto;
