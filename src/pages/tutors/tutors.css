@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Poppins, sans-serif;
+    background-color: #ffffff;
+}
+
+.header {
+    height: 70px;
+    background-color: #d9d9d9;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.logo {
+    width: 80px;
+    height: auto;
+    margin-right: 20px;
+}
+
+.content {
+    padding: 80px 60px 40px;
+}
+
+.title {
+    text-align: center;
+    font-weight: normal;
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 60px;
+    color: #989393;
+}
+
+.tutors {
+    display: grid;
+    grid-template-columns: repeat(4, 235px);
+    justify-content: center;
+    gap: 50px;
+}
+
+.tutor-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.image-placeholder {
+    width: 235px;
+    height: 245px;
+    border: 2px solid black;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tutor-icon {
+    width: 150px;
+    height: auto;
+    transform: translateY(8px);
+}
+
+.tutor-name {
+    font-size: 16px;
+    margin-top: 8px;
+}
+
+.tutor-description {
+    font-size: 14px;
+    text-align: center;
+    margin-top: 2px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-top: 70px;
+}
+
+.pagination-arrow {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.pagination-current {
+    font-size: 24px;
+}
+
+.pagination-arrow img {
+    width: 40px;
+    height: 40px;
+}
