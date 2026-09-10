@@ -1,57 +1,66 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
-
-header {
-  background-color: #D9D9D9;
-  padding: 40px;
+.home-content {
+    text-align: center;
+    padding: 60px;
 }
 
-body {
-  font-family: Poppins, sans-serif;
-  background-color: #ffffff;
-  text-align: center;
+.home-logo {
+    width: 291px;
+    height: 279px;
 }
 
-p {
-  font-size: 20px;
+.home-description {
+    margin: 40px auto;
+    max-width: 900px;
 }
 
-p.a {
-  display: flex;
-  align-items: center;
-  text-align: center;
-  font-size: 36px;
+.home-description p {
+    font-size: 20px;
+    margin-bottom: 20px;
 }
 
-p.a::before,
-p.a::after {
-  content: "";
-  flex: 1;
-  height: 2px;
-  max-width: 90px;
-  margin: auto;
+.home-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 80px;
 }
 
-p.a::before {
-  background-color: #000000;
-  margin-right: 20px;
+.home-button {
+    width: 270px;
+    height: 70px;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    background-color: #d9d9d9;
+    font-size: 36px;
+    font-family: Poppins, sans-serif;
+    cursor: pointer;
 }
 
-p.a::after {
-  background-color: #000000;
-  margin-left: 20px;
+.home-button:hover {
+    background-color: #9d9d9d;
+    border-color: #000000;
 }
 
-img {
-  width: 20%;
-  height: auto;
+.divider {
+    display: flex;
+    align-items: center;
+    width: 270px;
+    margin: 20px 0;
+    font-size: 36px;
 }
 
-button {
-  background-color: #D9D9D9;
-  font-family: Poppins, sans-serif;
-  font-size: 36px;
-  text-align: center;
-  border-radius: 10px;
-  height: 70px;
-  width: 270px;
+.divider::before,
+.divider::after {
+    content: "";
+    flex: 1;
+    height: 2px;
+    background-color: #000000;
+}
+
+.divider::before {
+    margin-right: 20px;
+}
+
+.divider::after {
+    margin-left: 20px;
 }
