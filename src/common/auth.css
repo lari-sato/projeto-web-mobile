@@ -1,0 +1,52 @@
+
+.subtitle a {
+    color: #989393;
+    text-decoration: underline;
+}
+
+.subtitle a:hover {
+    color: #bdbdbd;
+}
+
+.form {
+    width: 351px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group > label:not(.checkbox-card) {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 13px;
+    color: #000000;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"] {
+    width: 351px;
+    height: 51px;
+    padding: 0 12px;
+    border: 1px solid #000000;
+    font-size: 14px;
+}
+
+.btn-submit {
+    display: block;
+    width: 146px;
+    height: 54px;
+    margin: 60px auto 0;
+    border: none;
+    background-color: #000000;
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-submit:hover {
+    background-color: #989393;
+}
