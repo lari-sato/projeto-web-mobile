@@ -19,10 +19,16 @@ Instrutores são restritos para pessoas que, no mínimo, completaram o ensino fu
 
 ![Cadastro ambos](./wireframes/register-both.png)
 
+## Login
+No login, o usuário digita seu nome de usuário ou e-mail e senha.
+![Login](./wireframes/login.png)
+
+## Tópicos
 Ao realizar o login, o usuário pode escolher um ou mais tópicos que deseja ajuda.
 
 ![Tópicos](./wireframes/topics.png)
 
+## Tutores
 Após a seleção dos tópicos, o aplicativo direciona o usuário a uma tela com os tutores que ensinam os tópicos escolhidos.
 
 ![Tutores](./wireframes/instructors.png)
@@ -36,10 +42,12 @@ Após a seleção dos tópicos, o aplicativo direciona o usuário a uma tela com
 src/
 	assets/                 Imagens e vetores usados pelas páginas
 	common/
-		global.css            Regras gerais compartilhadas
+		auth.css              Componentes comuns de formulário
 		components.css        Componentes reutilizáveis
+		global.css            Regras gerais compartilhadas
 	pages/
 		home/                 Tela inicial
+		login/                Tela de login
 		register/             Tela de cadastro
 		topics/               Seleção de tópicos
 		tutors/               Lista de tutores
@@ -56,6 +64,7 @@ Não há arquivo de dependências nem etapa de compilação. Basta abrir um dest
 
 ```text
 src/pages/home/home.html
+src/pages/login/login.html
 src/pages/register/register.html
 src/pages/topics/topics.html
 src/pages/tutors/tutors.html
@@ -112,6 +121,14 @@ Este arquivo contém componentes em comum entre as páginas. Por enquanto, somen
 - `.search-bar` define a largura e a distância da busca em relação ao logo.
 - `.search-bar input` faz o campo ocupar toda a largura do componente, remove a borda, arredonda os cantos e aplica a mesma fonte do restante da interface.
 
+### `src/common/auth.css`
+
+Este arquivo contém componentes comuns de formulário.
+- `.subtitle a` define o estilo do link para a página de login ou cadastro.
+- `.form` define o tamanho do campo de formulário.
+- `.form-group` define o espaçamentro entre os campos de formulário e a entrada do usuário dentro deles.
+- `.btn-submit` define o estilo do botão de enviar formulário.
+
 ## 5. Tela inicial: `home.html` e `home.css`
 
 Seu conteúdo principal contém:
@@ -140,7 +157,7 @@ O separador `OU` usa pseudo-elementos:
 
 Esses elementos vazios viram duas linhas flexíveis, uma antes e outra depois do texto.
 
-## 6. Cadastro: `register.html` e `register.css`
+## 6. Cadastro: `register.html`, `auth.css` e `register.css`
 
 O cadastro usa um `<form>`, que é o elemento utilizado para reunir dados enviados pelo usuário. Cada campo fica em um `.form-group` e possui um `<label>` associado pelo mesmo valor de `for` e `id`:
 
@@ -163,7 +180,22 @@ O seletor abaixo estiliza somente o label comum do grupo, excluindo os labels do
 
 O botão `OK` tem `type="submit"`, portanto tenta enviar o formulário. Como o `<form>` não possui `action` nem código JavaScript para tratar o evento, o navegador apenas executará seu comportamento padrão; os dados não são salvos no projeto atual.
 
-## 7. Seleção de tópicos: `topics.html` e `topics.css`
+
+## 7. Login: `login.html` e `auth.css`
+
+O login usa um `<form>`, que é o elemento utilizado para reunir dados enviados pelo usuário. Cada campo fica em um `.form-group` e possui um `<label>` associado pelo mesmo valor de `for` e `id`:
+
+```html
+<label for="usuario">USUARIO OU E-MAIL</label>
+<input type="text" id="usuario" name="usuario">
+```
+
+Essa associação permite clicar no rótulo para focar o campo e melhora a leitura por tecnologias assistivas. Os tipos `text` e `password` informam ao navegador qual dado é esperado.
+
+O botão `OK` tem `type="submit"`, portanto tenta enviar o formulário. Como o `<form>` não possui `action` nem código JavaScript para tratar o evento, o navegador apenas executará seu comportamento padrão; os dados não são salvos no projeto atual.
+
+
+## 8. Seleção de tópicos: `topics.html` e `topics.css`
 
 A tela interna reaproveita o cabeçalho, o logo de `logo0.svg`, a barra de pesquisa e as classes comuns. O conteúdo tem uma grade `.topics-grid` com vários `<article class="topic-card">`.
 
@@ -186,7 +218,7 @@ Esse seletor lê o estado do checkbox descendente e aplica uma borda mais grossa
 
 Os blocos de imagem estão comentados. Isso significa que `tutor-icon.svg` não aparece nessa tela atualmente; o retângulo cinza funciona como placeholder.
 
-## 8. Lista de tutores: `tutors.html` e `tutors.css`
+## 9. Lista de tutores: `tutors.html` e `tutors.css`
 
 A página de tutores repete a estrutura do cabeçalho e cria uma grade `.tutors` com cards. Cada `.tutor-card` possui:
 
@@ -200,7 +232,7 @@ A paginação é um `<nav>` com `aria-label`, o que informa sua finalidade a lei
 
 O botão `Voltar` também é somente visual no estado atual.
 
-## 9. Assets
+## 10. Assets
 
 - `logo.svg`: marca maior usada na tela inicial.
 - `logo0.svg`: versão usada no cabeçalho das telas internas.
@@ -209,7 +241,7 @@ O botão `Voltar` também é somente visual no estado atual.
 
 SVG é um formato vetorial: o navegador interpreta suas formas, caminhos e atributos XML, mantendo boa qualidade ao redimensionar. Os arquivos de logo contêm imagens incorporadas em Base64, por isso são maiores que um SVG desenhado apenas com formas.
 
-## 10. Limitações
+## 11. Limitações
 
 O projeto ainda possui algumas limitações. Para virar uma aplicação completa, falta:
 
