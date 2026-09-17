@@ -1,11 +1,11 @@
 
 .subtitle a {
-    color: #989393;
+    color: #065535;
     text-decoration: underline;
 }
 
 .subtitle a:hover {
-    color: #bdbdbd;
+    color: #a0db8e;
 }
 
 .form {
@@ -21,7 +21,7 @@
     display: block;
     margin-bottom: 4px;
     font-size: 13px;
-    color: #000000;
+    color: #065535;
 }
 
 .form-group input[type="text"],
@@ -30,8 +30,9 @@
     width: 351px;
     height: 51px;
     padding: 0 12px;
-    border: 1px solid #000000;
+    border: 2px solid #065535;
     font-size: 14px;
+    font-weight: 420;
 }
 
 .btn-submit {
@@ -40,7 +41,7 @@
     height: 54px;
     margin: 60px auto 0;
     border: none;
-    background-color: #000000;
+    background-color: #065535;
     color: #ffffff;
     font-size: 24px;
     font-weight: bold;
@@ -48,5 +49,5 @@
 }
 
 .btn-submit:hover {
-    background-color: #989393;
+    background-color: #098553;
 }
