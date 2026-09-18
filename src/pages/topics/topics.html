@@ -12,8 +12,8 @@
     <link rel="stylesheet" href="topics.css">
 </head>
 
-
 <body>
+
     <div class="container">
         <header class="header">
             <img
@@ -21,9 +21,11 @@
                 src="../../assets/logo.png"
                 alt="Logo Reforço Comunitário"
             >
+
             <div class="search-bar">
                 <input type="text" placeholder="Pesquise aqui...">
             </div>
+
         </header>
 
         <main class="content">
@@ -31,47 +33,68 @@
             <p class="subtitle">
                 Selecione um tópico para começar.
             </p>
-                       
-            <script>
-                const topics = ['Matemática', 'Português', 'Redação', 'História', 'Geografia', 'Inglês', 'Física', 'Química', 'Biologia', 'Artes', 'Educação Física', 'Filosofia'];
 
-                const grid = document.createElement('section')
-                grid.classList.add('topics-grid');
-
-                topics.forEach((topic) => {
-                    const newTopic = document.createElement('article');
-                    newTopic.classList.add('topic-card');
-
-                    const newLabel = document.createElement('label');
-                    const newCheckbox = document.createElement('input');
-                    
-                    newCheckbox.type = 'checkbox';
-                    newCheckbox.name = topic;
-                    newCheckbox.classList.add('topic-checkbox');
-
-                    const textNode = document.createTextNode(topic);
-                    
-                    const imagePlaceholder = document.createElement('div');
-                    imagePlaceholder.classList.add('image-placeholder');
-
-                    newLabel.appendChild(newCheckbox);
-                    newLabel.appendChild(imagePlaceholder);
-                    newLabel.appendChild(textNode);
-
-                    newTopic.appendChild(newLabel);
-
-                    grid.appendChild(newTopic);
-                });
-
-                document.body.appendChild(grid);
-            </script>
-                
             <div class="button-container">
-               <a href="../tutors/tutors.html" class="btn-submit">Buscar Tutores</a>
+                <a href="../tutors/tutors.html" class="btn-submit">
+                    Buscar Tutores
+                </a>
             </div>
-            </div>
-
         </main>
     </div>
+
+    <script>
+        const topics = [
+            'Matemática',
+            'Português',
+            'Redação',
+            'História',
+            'Geografia',
+            'Inglês',
+            'Física',
+            'Química',
+            'Biologia',
+            'Artes',
+            'Educação Física',
+            'Filosofia'
+        ];
+
+        const grid = document.createElement('section');
+        grid.classList.add('topics-grid');
+
+        topics.forEach((topic) => {
+
+            const newTopic = document.createElement('article');
+            newTopic.classList.add('topic-card');
+
+            const newLabel = document.createElement('label');
+
+            const newCheckbox = document.createElement('input');
+            newCheckbox.type = 'checkbox';
+            newCheckbox.name = 'topico';
+            newCheckbox.value = topic;
+            newCheckbox.classList.add('topic-checkbox');
+
+            const imagePlaceholder = document.createElement('div');
+            imagePlaceholder.classList.add('image-placeholder');
+
+            const topicName = document.createElement('span');
+            topicName.classList.add('topic-name');
+            topicName.textContent = topic;
+
+            newLabel.appendChild(newCheckbox);
+            newLabel.appendChild(imagePlaceholder);
+            newLabel.appendChild(topicName);
+
+            newTopic.appendChild(newLabel);
+
+            grid.appendChild(newTopic);
+        });
+
+        const buttonContainer = document.querySelector('.button-container');
+
+        buttonContainer.before(grid);
+    </script>
+
 </body>
+
 </html>
