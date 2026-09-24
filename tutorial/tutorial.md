@@ -133,7 +133,7 @@ Este arquivo contém componentes comuns de formulário.
 
 Seu conteúdo principal contém:
 
-1. A imagem da marca, carregada por `../../assets/logo.svg`.
+1. A imagem da marca, carregada por `../../assets/logo.png`.
 2. Dois parágrafos dentro de `.home-description`.
 3. Dois botões dentro de `.home-actions`, separados pelo texto `OU`.
 
@@ -195,9 +195,9 @@ Essa associação permite clicar no rótulo para focar o campo e melhora a leitu
 O botão `OK` tem `type="submit"`, portanto tenta enviar o formulário. Como o `<form>` não possui `action` nem código JavaScript para tratar o evento, o navegador apenas executará seu comportamento padrão; os dados não são salvos no projeto atual.
 
 
-## 8. Seleção de tópicos: `topics.html` e `topics.css`
+## 8. Seleção de tópicos: `topics.html`, `topics.css` e `topics.js`
 
-A tela interna reaproveita o cabeçalho, o logo de `logo0.svg`, a barra de pesquisa e as classes comuns. O conteúdo tem uma grade `.topics-grid` com vários `<article class="topic-card">`.
+A tela interna reaproveita o cabeçalho, o logo de `logo.png`, a barra de pesquisa e as classes comuns. O conteúdo tem uma grade `.topics-grid` com vários `<article class="topic-card">`, carregados dinamicamente a partir de um script em Javascript.
 
 Cada card contém:
 
@@ -218,9 +218,11 @@ Esse seletor lê o estado do checkbox descendente e aplica uma borda mais grossa
 
 Os blocos de imagem estão comentados. Isso significa que `tutor-icon.svg` não aparece nessa tela atualmente; o retângulo cinza funciona como placeholder.
 
-## 9. Lista de tutores: `tutors.html` e `tutors.css`
+O usuário pode filtrar os tópicos utilizando a barra de pesquisa. A entrada do usuário é lida, comparadas com o texto em `topic-name` e, aqueles que não batem com o input, são ocultos com `display: none`.
 
-A página de tutores repete a estrutura do cabeçalho e cria uma grade `.tutors` com cards. Cada `.tutor-card` possui:
+## 9. Lista de tutores: `tutors.html`, `tutors.css` e e `tutors.js`
+
+A página de tutores repete a estrutura do cabeçalho e cria uma grade `.tutors` com cards, carregados dinamicamente a partir de um script em Javascript. Cada `.tutor-card` possui:
 
 1. Um `.image-placeholder` com o ícone SVG do tutor.
 2. Um título `<h3>` com o nome.
@@ -232,10 +234,11 @@ A paginação é um `<nav>` com `aria-label`, o que informa sua finalidade a lei
 
 O botão `Voltar` também é somente visual no estado atual.
 
+O usuário pode filtrar os tutores utilizando a barra de pesquisa. A entrada do usuário é lida, comparadas com o texto em `tutor-name` e, aqueles que não batem com o input, são ocultos com `display: none`.
+
 ## 10. Assets
 
-- `logo.svg`: marca maior usada na tela inicial.
-- `logo0.svg`: versão usada no cabeçalho das telas internas.
+- `logo.png`: logo utilizada pelo site.
 - `tutor-icon.svg`: desenho vetorial de um perfil de tutor.
 - `arrow-left.png` e `arrow-right.png`: setas da paginação.
 
