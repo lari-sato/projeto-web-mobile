@@ -39,10 +39,11 @@ Um mesmo usuário pode utilizar a plataforma tanto para **aprender** quanto para
 
 > **Conectar pessoas por meio da educação, tornando o conhecimento mais acessível em comunidade.**
 
-## 🛠️ Tecnologias Utilizadas (Em Progresso)
+## 🛠️ Tecnologias Utilizadas
 
 - **HTML5:** utilizado para estruturar e organizar o conteúdo das páginas.
 - **CSS3:** utilizado para estilização, layout e definição da aparência visual da plataforma.
+- **Javascript:** utilizado para interação com o usuário e carregar elementos dinamicamente.
 
 
 ## 👥 Integrantes
