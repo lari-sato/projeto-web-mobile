@@ -197,13 +197,15 @@ O botão `OK` tem `type="submit"`, portanto tenta enviar o formulário. Como o `
 
 ## 8. Seleção de tópicos: `topics.html`, `topics.css` e `topics.js`
 
-A tela interna reaproveita o cabeçalho, o logo de `logo.png`, a barra de pesquisa e as classes comuns. O conteúdo tem uma grade `.topics-grid` com vários `<article class="topic-card">`, carregados dinamicamente a partir de um script em Javascript.
+O arquivo Javascript possui uma lista estática de tópicos com suas respectivas imagens que os representam.
+
+A tela interna reaproveita o cabeçalho, o logo de `logo.png`, a barra de pesquisa e as classes comuns. O conteúdo tem uma grade `.topics-grid` com múltiplos `<article class="topic-card">`, carregados dinamicamente a partir do script em Javascript que percorre a lista de tópicos e carregando cada tópico em um card.
 
 Cada card contém:
 
 - um `<label>` que torna toda a área clicável;
 - um checkbox com `name="topico"`;
-- `.image-placeholder`, reservado para a imagem do tópico;
+- `.topic-image`, reservado para a imagem do tópico;
 - `.topic-name`, com o nome exibido.
 
 O checkbox fica oculto visualmente com `display: none`, mas continua sendo o controle que guarda a seleção. A mudança visual do card é feita por:
@@ -216,15 +218,15 @@ Esse seletor lê o estado do checkbox descendente e aplica uma borda mais grossa
 
 `.topics-grid` usa CSS Grid com três colunas fixas de 235 pixels. `gap` controla os espaços entre os cards. O botão `Buscar Tutores` está centralizado por `.button-container`, mas ainda não tem evento nem link para a tela de tutores.
 
-Os blocos de imagem estão comentados. Isso significa que `tutor-icon.svg` não aparece nessa tela atualmente; o retângulo cinza funciona como placeholder.
-
 O usuário pode filtrar os tópicos utilizando a barra de pesquisa. A entrada do usuário é lida, comparadas com o texto em `topic-name` e, aqueles que não batem com o input, são ocultos com `display: none`.
 
 ## 9. Lista de tutores: `tutors.html`, `tutors.css` e e `tutors.js`
 
-A página de tutores repete a estrutura do cabeçalho e cria uma grade `.tutors` com cards, carregados dinamicamente a partir de um script em Javascript. Cada `.tutor-card` possui:
+O arquivo Javascript possui uma lista estática de tutores com suas respectivas fotos.
 
-1. Um `.image-placeholder` com o ícone SVG do tutor.
+A página de tutores repete a estrutura do cabeçalho e cria uma grade `.tutors` com cards, carregados dinamicamente a partir de do script em Javascript que percorre a lista de tutores e carregando cada um em um card. Cada `.tutor-card` possui:
+
+1. Um `.tutor-image` com a imagem JPG do tutor.
 2. Um título `<h3>` com o nome.
 3. Um `<p>` com uma descrição provisória.
 
@@ -239,8 +241,9 @@ O usuário pode filtrar os tutores utilizando a barra de pesquisa. A entrada do 
 ## 10. Assets
 
 - `logo.png`: logo utilizada pelo site.
-- `tutor-icon.svg`: desenho vetorial de um perfil de tutor.
 - `arrow-left.png` e `arrow-right.png`: setas da paginação.
+- Pasta `topic-images`: imagens JPG dos tópicos.
+- Pasta `tutor-images`: imagens JPG dos tutores.
 
 SVG é um formato vetorial: o navegador interpreta suas formas, caminhos e atributos XML, mantendo boa qualidade ao redimensionar. Os arquivos de logo contêm imagens incorporadas em Base64, por isso são maiores que um SVG desenhado apenas com formas.
 
