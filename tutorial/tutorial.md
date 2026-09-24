@@ -157,7 +157,7 @@ O separador `OU` usa pseudo-elementos:
 
 Esses elementos vazios viram duas linhas flexíveis, uma antes e outra depois do texto.
 
-## 6. Cadastro: `register.html`, `auth.css` e `register.css`
+## 6. Cadastro: `register.html`, `auth.css`, `register.css` e  `register.js`
 
 O cadastro usa um `<form>`, que é o elemento utilizado para reunir dados enviados pelo usuário. Cada campo fica em um `.form-group` e possui um `<label>` associado pelo mesmo valor de `for` e `id`:
 
@@ -178,10 +178,13 @@ O seletor abaixo estiliza somente o label comum do grupo, excluindo os labels do
 .form-group > label:not(.checkbox-card)
 ```
 
-O botão `OK` tem `type="submit"`, portanto tenta enviar o formulário. Como o `<form>` não possui `action` nem código JavaScript para tratar o evento, o navegador apenas executará seu comportamento padrão; os dados não são salvos no projeto atual.
+O arquivo `register.js` controla a validação do formulário antes do envio.
+- Verifica se os campos obrigatórios foram preenchidos corretamente e se pelo menos uma função foi selecionada;
+- Enquanto essas condições não forem atendidas, o botão OK permanece desabilitado;
+- Quando o formulário se torna válido, o botão é habilitado e, ao enviá-lo, o JavaScript impede o comportamento padrão do formulário e redireciona o usuário para a página de tópicos.
 
 
-## 7. Login: `login.html` e `auth.css`
+## 7. Login: `login.html`, `auth.css` e `login.js`
 
 O login usa um `<form>`, que é o elemento utilizado para reunir dados enviados pelo usuário. Cada campo fica em um `.form-group` e possui um `<label>` associado pelo mesmo valor de `for` e `id`:
 
@@ -192,7 +195,9 @@ O login usa um `<form>`, que é o elemento utilizado para reunir dados enviados 
 
 Essa associação permite clicar no rótulo para focar o campo e melhora a leitura por tecnologias assistivas. Os tipos `text` e `password` informam ao navegador qual dado é esperado.
 
-O botão `OK` tem `type="submit"`, portanto tenta enviar o formulário. Como o `<form>` não possui `action` nem código JavaScript para tratar o evento, o navegador apenas executará seu comportamento padrão; os dados não são salvos no projeto atual.
+O arquivo `login.js` verifica se os campos de usuário/e-mail e senha foram preenchidos corretamente.
+- Enquanto o formulário estiver incompleto, o botão OK permanece desabilitado;
+- Quando todos os campos obrigatórios estão válidos, o botão é habilitado e, ao enviar o formulário, o JavaScript impede o envio padrão e redireciona o usuário para a página de tópicos.
 
 
 ## 8. Seleção de tópicos: `topics.html`, `topics.css` e `topics.js`
