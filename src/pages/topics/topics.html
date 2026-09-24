@@ -42,58 +42,7 @@
         </main>
     </div>
 
-    <script>
-        const topics = [
-            'Matemática',
-            'Português',
-            'Redação',
-            'História',
-            'Geografia',
-            'Inglês',
-            'Física',
-            'Química',
-            'Biologia',
-            'Artes',
-            'Educação Física',
-            'Filosofia'
-        ];
-
-        const grid = document.createElement('section');
-        grid.classList.add('topics-grid');
-
-        topics.forEach((topic) => {
-
-            const newTopic = document.createElement('article');
-            newTopic.classList.add('topic-card');
-
-            const newLabel = document.createElement('label');
-
-            const newCheckbox = document.createElement('input');
-            newCheckbox.type = 'checkbox';
-            newCheckbox.name = 'topico';
-            newCheckbox.value = topic;
-            newCheckbox.classList.add('topic-checkbox');
-
-            const imagePlaceholder = document.createElement('div');
-            imagePlaceholder.classList.add('image-placeholder');
-
-            const topicName = document.createElement('span');
-            topicName.classList.add('topic-name');
-            topicName.textContent = topic;
-
-            newLabel.appendChild(newCheckbox);
-            newLabel.appendChild(imagePlaceholder);
-            newLabel.appendChild(topicName);
-
-            newTopic.appendChild(newLabel);
-
-            grid.appendChild(newTopic);
-        });
-
-        const buttonContainer = document.querySelector('.button-container');
-
-        buttonContainer.before(grid);
-    </script>
+    <script src="topics.js"></script>
 
 </body>
 
