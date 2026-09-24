@@ -1,19 +1,19 @@
 const btnSubmit = document.querySelector('.btn-submit');
 
 const topics = [
-            'Matemática',
-            'Português',
-            'Redação',
-            'História',
-            'Geografia',
-            'Inglês',
-            'Física',
-            'Química',
-            'Biologia',
-            'Artes',
-            'Educação Física',
-            'Filosofia'
-        ];
+    { name: 'Matemática', image: 'topico-matematica.jpg' },
+    { name: 'Português', image: 'topico-portugues.jpg' },
+    { name: 'Redação', image: 'topico-redacao.jpg' },
+    { name: 'História', image: 'topico-historia.jpg' },
+    { name: 'Geografia', image: 'topico-geografia.jpg' },
+    { name: 'Inglês', image: 'topico-ingles.jpg' },
+    { name: 'Física', image: 'topico-fisica.jpg' },
+    { name: 'Química', image: 'topico-quimica.jpg' },
+    { name: 'Biologia', image: 'topico-biologia.jpg' },
+    { name: 'Artes', image: 'topico-artes.jpg' },
+    { name: 'Educação Financeira', image: 'topico-educacao-financeira.jpg' },
+    { name: 'Programação', image: 'topico-programacao.jpg' }
+];
 
 const searchInput = document.querySelector('.search-bar input');
 
@@ -32,15 +32,22 @@ topics.forEach((topic) => {
     const newCheckbox = document.createElement('input');
     newCheckbox.type = 'checkbox';
     newCheckbox.name = 'topico';
-    newCheckbox.value = topic;
+    newCheckbox.value = topic.name;
     newCheckbox.classList.add('topic-checkbox');
 
     const imagePlaceholder = document.createElement('div');
     imagePlaceholder.classList.add('image-placeholder');
 
+    const topicImg = document.createElement('img');
+    topicImg.classList.add('topic-image');
+    topicImg.src = `../../assets/topics-images/${topic.image}`;
+    topicImg.alt = `Tópico de ${topic.name}`;
+
+    imagePlaceholder.appendChild(topicImg);
+
     const topicName = document.createElement('span');
     topicName.classList.add('topic-name');
-    topicName.textContent = topic;
+    topicName.textContent = topic.name;
 
     newLabel.appendChild(newCheckbox);
     newLabel.appendChild(imagePlaceholder);
@@ -52,10 +59,8 @@ topics.forEach((topic) => {
 });
 
 const containerContent = document.querySelector('.content');
-containerContent.appendChild(grid);
 const buttonContainer = document.querySelector('.button-container');
-buttonContainer.before(grid);
-
+containerContent.insertBefore(grid, buttonContainer);
 
 // Filtra os cards com base no input
 searchInput.addEventListener('input', (event) => {
@@ -64,12 +69,7 @@ searchInput.addEventListener('input', (event) => {
 
     cards.forEach((card) => {
         const topicName = card.querySelector('.topic-name').textContent.toLowerCase();
-
-        if (topicName.includes(input)) {
-            card.style.display = '';
-        } else {
-            card.style.display = 'none';
-        }
+        card.style.display = topicName.includes(input) ? '' : 'none';
     });
 });
 
@@ -86,7 +86,6 @@ btnSubmit.addEventListener('click', () => {
     if (topicosEscolhidos.length === 0) {
         alert('Por favor, selecione pelo menos um tópico!');
     } else {
-        console.log('Tópicos selecionados:', topicosEscolhidos);
         alert(`Você selecionou: ${topicosEscolhidos.join(', ')}`);
     }
 });

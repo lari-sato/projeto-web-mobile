@@ -1,11 +1,11 @@
 const tutors = [
-            'Maria Cláudia Carvalho',
-            'Regina Santos',
-            'Caio Kimura',
-            'João Pedro da Silva',
-            'Bruno Teixeira',
-            'Tati Matos'
-        ];
+    { name: 'Maria Cláudia Carvalho', image: 'Maria-Claudia-Carvalho.jpg'},
+    { name: 'Regina Santos', image: 'Regina-Santos.jpg'},
+    { name: 'Caio Kimura', image: 'Caio-Kimura.jpg'},
+    { name: 'João Pedro da Silva', image: 'Joao-Pedro.jpg'},
+    { name: 'Bruno Teixeira', image: 'Bruno-Teixeira.jpg'},
+    { name: 'Tati Matos', image: 'Tati-Matos.jpg'}
+];
 
 const searchInput = document.querySelector('.search-bar input');
 
@@ -18,25 +18,20 @@ tutors.forEach((tutor) => {
     const newTutor = document.createElement('article');
     newTutor.classList.add('tutor-card');
 
-    const imagePlaceholder = document.createElement('div');
-    imagePlaceholder.classList.add('image-placeholder');
-
     const image = document.createElement('img');
-    image.classList.add('tutor-icon');
-    image.src = '../../assets/tutor-icon.svg';
-    image.alt = 'Ícone do Tutor';
-
-    imagePlaceholder.appendChild(image);
+    image.classList.add('tutor-image');
+    image.src = `../../assets/tutor-images/${tutor.image}`;
+    image.alt = `Foto de ${tutor.name}`;
 
     const tutorName = document.createElement('h3');
     tutorName.classList.add('tutor-name');
-    tutorName.textContent = tutor;
+    tutorName.textContent = tutor.name;
     
     const description = document.createElement('p');
     description.classList.add('tutor-description');
     description.textContent = '[Breve descrição]';
 
-    newTutor.appendChild(imagePlaceholder);
+    newTutor.appendChild(image);
     newTutor.appendChild(tutorName);
     newTutor.appendChild(description);
 
@@ -44,10 +39,8 @@ tutors.forEach((tutor) => {
 });
 
 const containerContent = document.querySelector('.content');
-containerContent.appendChild(grid);
 const pagination = document.querySelector('.pagination');
-pagination.before(grid);
-
+containerContent.insertBefore(grid, pagination);
 
 // Filtra os cards com base no input
 searchInput.addEventListener('input', (event) => {
@@ -56,11 +49,6 @@ searchInput.addEventListener('input', (event) => {
 
     cards.forEach((card) => {
         const tutorName = card.querySelector('.tutor-name').textContent.toLowerCase();
-
-        if (tutorName.includes(input)) {
-            card.style.display = '';
-        } else {
-            card.style.display = 'none';
-        }
+        card.style.display = tutorName.includes(input) ? '' : 'none';
     });
 });
