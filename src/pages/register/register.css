@@ -1,5 +1,6 @@
 .checkbox-card {
-    width: 351px;
+    width: 100%;
+    max-width: 351px;
     height: 51px;
     display: flex;
     justify-content: space-between;
@@ -12,9 +13,8 @@
 }
 
 .checkbox-card span {
-    font-size: 13px;
-    color: #065535;
     font-size: 16px;
+    color: #065535;
 }
 
 .checkbox-card input[type="checkbox"] {
@@ -22,10 +22,21 @@
     width: 14px;
     height: 14px;
     border: 2px solid #065535;
-    border-radius: 100%;
+    border-radius: 50%;
     cursor: pointer;
 }
 
 .checkbox-card input[type="checkbox"]:checked {
     background-color: #a0db8e;
+}
+
+@media (max-width: 480px) {
+    .checkbox-card {
+        height: 48px;
+        padding: 0 14px;
+    }
+
+    .checkbox-card span {
+        font-size: 14px;
+    }
 }
