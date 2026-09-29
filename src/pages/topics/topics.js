@@ -73,19 +73,23 @@ searchInput.addEventListener('input', (event) => {
     });
 });
 
-
 // Confere se algum tópico foi escolhido ao clicar no botão
 btnSubmit.addEventListener('click', () => {
-    
     const checkboxesSelecionados = document.querySelectorAll('.topic-checkbox:checked');
-    
-    const topicosEscolhidos = Array.from(checkboxesSelecionados).map(checkbox => {
-        return checkbox.closest('.topic-card').querySelector('.topic-name').textContent;
+
+    const topicosEscolhidos = Array.from(checkboxesSelecionados).map((checkbox) => {
+        return checkbox.value;
     });
 
     if (topicosEscolhidos.length === 0) {
         alert('Por favor, selecione pelo menos um tópico!');
-    } else {
-        alert(`Você selecionou: ${topicosEscolhidos.join(', ')}`);
+        return;
     }
+
+    sessionStorage.setItem(
+        'topicosSelecionados',
+        JSON.stringify(topicosEscolhidos)
+    );
+
+    window.location.href = '../tutors/tutors.html';
 });
