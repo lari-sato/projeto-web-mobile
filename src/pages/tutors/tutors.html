@@ -20,6 +20,7 @@
                 src="../../assets/logo.png"
                 alt="Logo Reforço Comunitário"
             >
+
             <div class="search-bar">
                 <input type="text" placeholder="Pesquise aqui...">
             </div>
@@ -32,24 +33,44 @@
             </p>
 
             <nav class="pagination" aria-label="Paginação de tutores">
-                <button class="pagination-arrow">
-                    <img src="../../assets/arrow-left.svg" alt="Página anterior">
+
+                <button
+                    type="button"
+                    class="pagination-arrow"
+                    id="prev-page"
+                >
+                    <img
+                        src="../../assets/arrow-left.svg"
+                        alt="Página anterior"
+                    >
                 </button>
 
-                <span class="pagination-current">1 / 30</span>
+                <span class="pagination-current">1 / 1</span>
 
-                <button class="pagination-arrow">
-                    <img src="../../assets/arrow-right.svg" alt="Próxima página">
+                <button
+                    type="button"
+                    class="pagination-arrow"
+                    id="next-page"
+                >
+                    <img
+                        src="../../assets/arrow-right.svg"
+                        alt="Próxima página"
+                    >
                 </button>
+
             </nav>
 
             <div class="back-container">
-                <a href="../topics/topics.html" class="btn-submit">Voltar</a>
+                <a href="../topics/topics.html" class="btn-submit">
+                    Voltar
+                </a>
             </div>
 
         </main>
+
     </div>
 
     <script src="tutors.js"></script>
+
 </body>
 </html>
