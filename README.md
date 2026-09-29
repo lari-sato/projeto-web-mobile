@@ -21,30 +21,46 @@ O projeto está alinhado ao **Objetivo de Desenvolvimento Sustentável 4 da ONU 
 
 - Cadastro e login na plataforma.
 - Identificação do nível de escolaridade.
-- Busca por instrutores de acordo com **disciplina/tópico**.
-- Acesso gratuito ao reforço educacional.
+- Busca por instrutores de acordo com a(s) **disciplina(s)** ou o(s) **tópico(s)** escolhidos.
+- Solicitação de videoaulas ou aulas ao-vivo.
 
 ### 👨‍🏫 Para Instrutores
 
-- Cadastro e login na plataforma.
-- Comprovação de formação por meio de **certificação ou diploma**.
-- Cadastro das **disciplinas/tópicos** que possui conhecimento para ensinar.
-- Participação voluntária no apoio aos alunos.
+- Cadastro e login na plataforma, sendo necessária comprovação de **certificação ou diploma**.
+- Cadastro das **disciplinas ou tópicos** que possui conhecimento para ensinar.
+- Aceitação, recusa ou remarcação de aulas.
 
 ### 🔄 Para Todos
 
-Um mesmo usuário pode utilizar a plataforma tanto para **aprender** quanto para **compartilhar seus conhecimentos**, permitindo uma relação de troca entre os participantes.
+- Todas as funcionalidades citadas acima.
+- Participação em forúms por **disciplina ou tópico**.
+- Ensinar e aprender junto!
 
 ## 🎯 Propósito
 
 > **Conectar pessoas por meio da educação, tornando o conhecimento mais acessível em comunidade.**
 
-## 🛠️ Tecnologias Utilizadas
+## 🛠️ Tecnologias Utilizadas e Responsabilidades
 
-- **HTML5:** utilizado para estruturar e organizar o conteúdo das páginas.
-- **CSS3:** utilizado para estilização, layout e definição da aparência visual da plataforma.
-- **Javascript:** utilizado para interação com o usuário e carregar elementos dinamicamente.
+```text
+HTML5
+└── estrutura e significado do conteúdo
 
+CSS
+├── aparência
+├── layout
+├── responsividade
+└── estados visuais (:hover, :focus, :checked, :disabled)
+
+JavaScript
+├── validação
+├── criação dinâmica de cards
+├── pesquisa e filtros
+├── seleção
+├── paginação
+├── navegação programática
+└── armazenamento temporário com sessionStorage
+```
 
 ## 👥 Integrantes
 - Beatriz Lima de Oliveira
