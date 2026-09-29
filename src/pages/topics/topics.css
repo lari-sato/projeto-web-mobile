@@ -1,8 +1,9 @@
 .topics-grid {
     display: grid;
-    grid-template-columns: repeat(3, 235px);
+    grid-template-columns: repeat(4, 235px);
     justify-content: center;
     gap: 50px 60px;
+    width: 100%;
     margin-bottom: 56px;
 }
 
@@ -18,9 +19,11 @@
     width: 100%;
     height: 100%;
     padding: 10px;
+
     display: flex;
     flex-direction: column;
     align-items: center;
+
     cursor: pointer;
 }
 
@@ -32,15 +35,18 @@
     width: 198px;
     height: 170px;
     border-radius: 6px;
+    object-fit: cover;
 }
 
 .topic-name {
     flex: 1;
     width: 100%;
     margin-top: 8px;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     font-size: 18px;
     font-weight: normal;
     color: #065535;
@@ -61,11 +67,37 @@
 
 .btn-submit {
     width: 395px;
+    max-width: 100%;
     height: 71px;
     margin: 0 auto;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     font-size: 32px;
     text-decoration: none;
+}
+
+@media (max-width: 1250px) {
+    .topics-grid {
+        grid-template-columns: repeat(3, 235px);
+    }
+}
+
+@media (max-width: 950px) {
+    .topics-grid {
+        grid-template-columns: repeat(2, 235px);
+    }
+}
+
+@media (max-width: 650px) {
+    .topics-grid {
+        grid-template-columns: 235px;
+        gap: 40px;
+    }
+
+    .btn-submit {
+        font-size: 26px;
+    }
 }
