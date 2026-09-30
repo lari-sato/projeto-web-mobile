@@ -1,5 +1,3 @@
-const btnSubmit = document.querySelector('.btn-submit');
-
 const topics = [
     { name: 'Matemática', image: 'topico-matematica.jpg' },
     { name: 'Português', image: 'topico-portugues.jpg' },
@@ -74,21 +72,25 @@ searchInput.addEventListener('input', (event) => {
 });
 
 // Confere se algum tópico foi escolhido ao clicar no botão
-btnSubmit.addEventListener('click', () => {
-    const checkboxesSelecionados = document.querySelectorAll('.topic-checkbox:checked');
+const btnSubmit = document.querySelector('.btn-submit');
 
-    const topicosEscolhidos = Array.from(checkboxesSelecionados).map((checkbox) => {
+function updateButton() {
+    const selectedTopics  = document.querySelectorAll('.topic-checkbox:checked');
+    btnSubmit.disabled = selectedTopics.length === 0;
+}
+
+grid.addEventListener('change', updateButton);
+
+btnSubmit.addEventListener('click', () => {
+    const selectedCheckboxes = document.querySelectorAll('.topic-checkbox:checked');
+    
+    const selectedTopics = Array.from(selectedCheckboxes).map((checkbox) => {
         return checkbox.value;
     });
-
-    if (topicosEscolhidos.length === 0) {
-        alert('Por favor, selecione pelo menos um tópico!');
-        return;
-    }
-
+    
     sessionStorage.setItem(
         'topicosSelecionados',
-        JSON.stringify(topicosEscolhidos)
+        JSON.stringify(selectedTopics)
     );
 
     window.location.href = '../tutors/tutors.html';
