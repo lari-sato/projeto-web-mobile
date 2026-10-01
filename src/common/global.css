@@ -19,6 +19,38 @@ body {
     padding: 0 20px;
 }
 
+.navigation {
+    display: flex;
+    align-items: center;
+    margin-left: 50px;
+}
+
+.navigation-button {
+    display: flex;
+    font-family: Poppins, sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    color: #065535;
+    background-color: transparent;
+    border: none;
+    margin-right: 30px;
+}
+
+.navigation-button.active {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.navigation-button:hover {
+    text-decoration: underline;
+}
+
+.navigation-icon {
+    height: 18px;
+    width: auto;
+    margin-right: 8px;
+}
+
 .logo {
     width: 80px;
     height: auto;

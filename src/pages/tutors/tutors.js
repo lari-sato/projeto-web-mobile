@@ -157,3 +157,25 @@ prevButton.addEventListener('click', () => {
 // Pesquisa
 searchInput.addEventListener('input', filterTutors);
 filterTutors();
+
+
+// Navegação entre páginas no header
+const initialButton = document.querySelector('.navigation-button[value="initial"]');
+
+initialButton.addEventListener('click', () => {
+    window.location.href = '../forum/forum.html';
+});
+
+
+const topicsButton = document.querySelector('.navigation-button[value="topics"]');
+
+topicsButton.addEventListener('click', () => {
+    window.location.href = '../topics/topics.html';
+});
+
+
+const tutorsButton = document.querySelector('.navigation-button[value="tutors"]');
+
+tutorsButton.addEventListener('click', () => {
+    window.location.href = '../tutors/tutors.html';
+});
