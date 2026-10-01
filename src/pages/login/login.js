@@ -10,5 +10,5 @@ form.addEventListener('input', validateForm);
 form.addEventListener('submit', (event) => {
     event.preventDefault();
 
-    window.location.href = '../topics/topics.html';
+    window.location.href = '../forum/forum.html';
 });
