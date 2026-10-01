@@ -53,7 +53,8 @@ src/
 │   ├── arrow-right.svg
 │   ├── tutor-icon.svg
 │   ├── topics-images/
-│   └── tutor-images/
+│   ├── tutor-images/
+│   └── student-images/
 │
 ├── common/
 │   ├── auth.css
@@ -117,14 +118,18 @@ A fonte Poppins é importada do Google Fonts; portanto, é necessário acesso à
 O fluxo implementado atualmente é:
 
 ```text
-Home
-  ├── Entrar ──────> Login ──────> Tópicos
-  └── Cadastrar ───> Cadastro ───> Tópicos
-                                  ↓
-                          seleção de matérias
-                                  ↓
-                               Tutores
+Tela de abertura 
+  ├── Cadastro ───> Fórum (Início)
+  └── Login ──────> Fórum (Início)
+                    │
+                    ├── Início ───> Fórum
+                    ├── Tópicos ──> seleção de matérias
+                    │                  ↓
+                    │               Tutores
+                    └── Tutores ──> lista de tutores
 ```
+
+Após se cadastrar ou fazer login, o usuário entra no **Fórum**, que funciona como tela principal. O cabeçalho possui ícones de navegação para as demais páginas, permitindo alternar entre essas telas sem voltar à página pública inicial.
 
 Na tela de tópicos, as matérias selecionadas são armazenadas temporariamente no `sessionStorage`. A tela de tutores recupera essa informação e exibe apenas professores relacionados a pelo menos uma das matérias selecionadas.
 
@@ -188,7 +193,7 @@ Com `box-sizing: border-box`, a largura e a altura informadas já incluem `paddi
 
 O `body` aplica a fonte Poppins e a cor de fundo geral `#FFF4E6`.
 
-O `.header` cria a barra superior verde-clara, com 70 pixels de altura, e utiliza Flexbox para alinhar seus elementos horizontalmente:
+O `.header` cria a barra superior verde-clara, com 70 pixels de altura, ícones de navegação para cada página e utiliza Flexbox para alinhamento horizontal. 
 
 ```css
 .header {
@@ -245,7 +250,7 @@ Essa organização evita repetir as mesmas regras em `login` e `register`.
 
 ---
 
-## 6. Tela inicial: `home.html` e `home.css`
+## 6. Tela de abertura: `home.html` e `home.css`
 
 A página inicial importa `global.css` e `home.css`.
 
@@ -405,8 +410,57 @@ Quando o formulário é enviado, o JavaScript impede o comportamento padrão e d
 Além disso, o link **Registre-se** atualmente usa `href="#"`, portanto ainda não direciona para `register.html`.
 
 ---
+## 9. Tela Principal:  `forum.html`, `forum.css` e `forum.js`
 
-## 9. Seleção de tópicos: `topics.html`, `topics.css` e `topics.js`
+Após o cadastro ou login, o usuário é direcionado ao Fórum, que funciona como a tela principal da área interna da aplicação.
+
+### Estrutura da página
+
+O conteúdo principal do fórum possui:
+1. um banner de boas-vindas;
+2. uma área de ações com Fazer pergunta, Filtrar por tópico e uma busca específica do fórum;
+3. uma seção de perguntas recentes criada dinamicamente pelo JavaScript.
+O banner utiliza `forum-banner.png` como imagem de fundo e apresenta uma mensagem de apresentação da comunidade.
+
+### Perguntas recentes
+
+O arquivo forum.js possui um array estático chamado questions. Cada objeto representa uma publicação do fórum e armazena informações como:
+
+```js
+{
+    image: 'Joao-Pedro.jpg',
+    name: 'João Pedro',
+    topic: 'Matemática',
+    time: '2h',
+    title: 'Como resolver essa questão de função de 1° grau?',
+    description: '...',
+    responses: '9',
+    likes: '3'
+}
+```
+
+A partir desse array, o JavaScript cria dinamicamente uma <section class="recent-questions"> e um <article class="question-card"> para cada pergunta.
+
+Cada card reúne:
+- foto do usuário;
+- nome;
+- tempo da publicação;
+- tópico;
+- título da pergunta;
+- descrição;
+- quantidade de respostas;
+- quantidade de likes;
+- botão Salvar.
+
+### Identificação visual por tópico
+
+O array hexCodes associa cada matéria a uma cor de fundo e uma cor de borda. Durante a criação do card, o JavaScript encontra as cores correspondentes ao tópico e aplica o estilo à identificação da matéria.
+
+Isso permite diferenciar visualmente perguntas de Matemática, Português, História, Programação e dos demais tópicos.
+
+---
+
+## 10. Seleção de tópicos: `topics.html`, `topics.css` e `topics.js`
 
 A página de tópicos reutiliza o cabeçalho com logo e barra de pesquisa.
 
@@ -519,15 +573,9 @@ No desktop, `.topics-grid` utiliza quatro colunas de 235 pixels, formando três 
 - 2 colunas em telas menores que 950px;
 - 1 coluna em telas menores que 650px.
 
-### Ponto de atenção no código atual
-
-O elemento **Buscar Tutores** é um `<a href="../tutors/tutors.html">`. O listener mostra um alerta quando nenhum tópico foi selecionado, mas atualmente não chama `event.preventDefault()` nesse caso. Portanto, o navegador ainda pode seguir o link mesmo após o alerta.
-
-Para bloquear de fato a navegação sem seleção, o listener deve receber o evento e impedir a ação padrão quando o array estiver vazio, ou o link deve ser substituído por um `<button>` controlado pelo JavaScript.
-
 ---
 
-## 10. Lista de tutores: `tutors.html`, `tutors.css` e `tutors.js`
+## 11. Lista de tutores: `tutors.html`, `tutors.css` e `tutors.js`
 
 A página de tutores também cria seus cards dinamicamente.
 
@@ -669,7 +717,7 @@ As media queries reduzem o grid para:
 
 ---
 
-## 11. Responsividade
+## 12. Responsividade
 
 A responsividade do projeto é dividida entre regras globais e regras específicas.
 
@@ -697,7 +745,7 @@ Essa divisão evita colocar no arquivo global regras que só fazem sentido para 
 
 ---
 
-## 12. Conceitos de JavaScript utilizados
+## 13. Conceitos de JavaScript utilizados
 
 O projeto já utiliza vários conceitos importantes de JavaScript no navegador.
 
@@ -746,7 +794,7 @@ O `sessionStorage` permite compartilhar temporariamente dados entre as páginas 
 
 ---
 
-## 13. Assets
+## 14. Assets
 
 Os principais assets são:
 
@@ -754,17 +802,19 @@ Os principais assets são:
 - `arrow-left.svg` e `arrow-right.svg`: setas da paginação;
 - `topics-images/`: imagens JPG dos tópicos;
 - `tutor-images/`: fotos JPG/PNG dos tutores;
+- `student-images/`: fotos PNG de estudantes;
 
 ---
 
-## 14. Limitações e próximos passos
+## 15. Limitações e próximos passos
 
 Os principais pontos que faltam para uma aplicação completa são:
 
-- realmente cadastrar e persistir usuários;
+- realmente cadastrar e persistir usuários de acordo com sua função;
 - autenticar credenciais no login;
-- implementar telas de edição de perfil e fórum;
-- implementar os campos adicionais previstos nos wireframes para aluno/instrutor;
+- adicionar ícones de "inbox" e perfil para navegação no header;
+- implementar barra lateral apresentando tópicos e tutores mais populares no fórum;
+- implementar telas de edição de perfil;
 - criar modal com o perfil completo do tutor, ao ser selecionado;
 - utilizar a seleção do tutor para iniciar ações reais, como solicitar ou agendar uma aula;
 - considerar melhorias de acessibilidade, especialmente para controles ocultos com `display: none` e navegação por teclado;
