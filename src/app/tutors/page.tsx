@@ -83,7 +83,7 @@ export default function Tutors() {
         </div>
 
         <nav className={styles.navigation}>
-          <Link className={styles.navigationButton} href="/">
+          <Link className={styles.navigationButton} href="/forum">
             <Image
               className={styles.navigationIcon}
               src="/assets/initial.png"
