@@ -5,6 +5,59 @@
   Larissa Yuri Sato - RA: 10418318
 */
 
+.container {
+    width: 100%;
+}
+
+.header {
+    height: 70px;
+    background-color: #a0db8e;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.logo {
+    width: 80px;
+    height: auto;
+    margin-right: 20px;
+    object-fit: contain;
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+    margin-left: 50px;
+}
+
+.navigationButton {
+    display: flex;
+    align-items: center;
+    font-family: Poppins, sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    color: #065535;
+    background-color: transparent;
+    border: none;
+    margin-right: 30px;
+    text-decoration: none;
+}
+
+.navigationButton.active {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.navigationButton:hover {
+    text-decoration: underline;
+}
+
+.navigationIcon {
+    height: 18px;
+    width: auto;
+    margin-right: 8px;
+}
+
 .tutors {
     display: grid;
     grid-template-columns: repeat(4, 235px);
@@ -34,9 +87,8 @@
     height: 245px;
     border: 2px solid #065535;
     border-radius: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    object-fit: cover;
+    display: block;
 }
 
 .tutorName {
@@ -44,6 +96,7 @@
     font-size: 16px;
     font-weight: normal;
     color: #065535;
+    text-align: center;
 }
 
 .tutorLabel {
@@ -71,6 +124,11 @@
     cursor: pointer;
 }
 
+.paginationArrow:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
 .paginationArrow img {
     width: 40px;
     height: 40px;
@@ -87,7 +145,7 @@
     padding: 0 16px;
 }
 
-.backContainer .backButton {
+.backButton {
     margin: 0;
     width: 200px;
     height: 71px;
@@ -96,11 +154,33 @@
     align-items: center;
     justify-content: center;
     text-decoration: none;
+    border: none;
+    border-radius: 10px;
+    background-color: #065535;
+    color: #ffffff;
+    font-family: Poppins, sans-serif;
+    cursor: pointer;
+}
+
+.backButton:hover {
+    background-color: #098553;
 }
 
 @media (max-width: 1100px) {
+    .header {
+        height: auto;
+        min-height: 70px;
+        flex-wrap: wrap;
+        gap: 12px;
+        padding: 10px 20px;
+    }
+
     .tutors {
         grid-template-columns: repeat(3, 235px);
+    }
+
+    .navigation {
+        margin-left: auto;
     }
 }
 
@@ -110,8 +190,46 @@
     }
 }
 
+@media (max-width: 768px) {
+    .navigation {
+        width: 100%;
+        justify-content: center;
+        margin-left: 0;
+    }
+
+    .navigationButton {
+        margin-right: 20px;
+    }
+}
+
 @media (max-width: 600px) {
     .tutors {
         grid-template-columns: 235px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        justify-content: center;
+        padding: 10px 16px;
+    }
+
+    .logo {
+        width: 70px;
+        margin-right: 0;
+    }
+
+    .navigation {
+        flex-wrap: wrap;
+    }
+
+    .navigationButton {
+        margin-right: 12px;
+        font-size: 13px;
+    }
+
+    .navigationIcon {
+        height: 16px;
+        margin-right: 6px;
     }
 }
