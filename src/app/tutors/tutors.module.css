@@ -1,0 +1,117 @@
+/*
+  Beatriz Lima de Oliveira - RA: 10416616
+  Giovana Simões Franco - RA: 10417646
+  Julia Santos Oliveira - RA: 10417672
+  Larissa Yuri Sato - RA: 10418318
+*/
+
+.tutors {
+    display: grid;
+    grid-template-columns: repeat(4, 235px);
+    justify-content: center;
+    gap: 50px;
+    width: 100%;
+}
+
+.tutorCard {
+    width: 235px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tutorCard:has(.tutorRadio:checked) .tutorImage {
+    border: 4px solid #065535;
+}
+
+.tutorCard:has(.tutorRadio:checked) .tutorName {
+    color: #065535;
+    font-weight: bold;
+}
+
+.tutorImage {
+    width: 235px;
+    height: 245px;
+    border: 2px solid #065535;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tutorName {
+    margin-top: 8px;
+    font-size: 16px;
+    font-weight: normal;
+    color: #065535;
+}
+
+.tutorLabel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+.tutorRadio {
+    display: none;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-top: 70px;
+}
+
+.paginationArrow {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.paginationArrow img {
+    width: 40px;
+    height: 40px;
+}
+
+.paginationCurrent {
+    font-size: 24px;
+    color: #065535;
+}
+
+.backContainer {
+    max-width: 1236px;
+    margin: 30px auto 40px;
+    padding: 0 16px;
+}
+
+.backContainer .backButton {
+    margin: 0;
+    width: 200px;
+    height: 71px;
+    font-size: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+@media (max-width: 1100px) {
+    .tutors {
+        grid-template-columns: repeat(3, 235px);
+    }
+}
+
+@media (max-width: 850px) {
+    .tutors {
+        grid-template-columns: repeat(2, 235px);
+    }
+}
+
+@media (max-width: 600px) {
+    .tutors {
+        grid-template-columns: 235px;
+    }
+}

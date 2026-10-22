@@ -1,0 +1,175 @@
+/*
+  Beatriz Lima de Oliveira - RA: 10416616
+  Giovana Simões Franco - RA: 10417646
+  Julia Santos Oliveira - RA: 10417672
+  Larissa Yuri Sato - RA: 10418318
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Poppins, sans-serif;
+    background-color: #FFF4E6;
+}
+
+.content {
+    padding: 80px 60px 40px;
+}
+
+.title {
+    text-align: center;
+    font-weight: normal;
+    font-size: 40px;
+    margin-bottom: 10px;
+    color: #065535;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 60px;
+    color: #41ac21;
+}
+
+.subtitle a {
+    color: #065535;
+    text-decoration: underline;
+}
+
+.subtitle a:hover {
+    color: #a0db8e;
+}
+
+.form {
+    width: 100%;
+    max-width: 351px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group > label:not(.checkbox-card) {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 16px;
+    color: #065535;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"] {
+    width: 100%;
+    height: 51px;
+    padding: 0 12px;
+    border: 2px solid #065535;
+    color: #098553;
+    font-size: 14px;
+    font-family: Poppins, sans-serif;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group input[type="password"]:focus {
+    border-color: #098553;
+    border-radius: 0;
+    outline: none;
+}
+
+.btn-submit {
+    border: none;
+    border-radius: 10px;
+    background-color: #065535;
+    color: #ffffff;
+    font-family: Poppins, sans-serif;
+    cursor: pointer;
+}
+
+.btn-submit:hover {
+    background-color: #098553;
+}
+
+.btn-submit:disabled {
+    background-color: #cccccc;
+    color: #777777;
+    cursor: not-allowed;
+}
+
+.btn-submit.auth-btn {
+    display: block;
+    width: 180px;
+    max-width: 100%;
+    height: 75px;
+    margin: 75px auto 0;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .content {
+        padding: 50px 20px 30px;
+    }
+
+    .title {
+        font-size: 32px;
+    }
+
+    .subtitle {
+        font-size: 22px;
+        margin-bottom: 40px;
+    }
+
+    .form {
+        max-width: 330px;
+    }
+
+    .form-group > label:not(.checkbox-card) {
+        font-size: 14px;
+    }
+
+    .btn-submit.auth-btn {
+        width: 160px;
+        height: 65px;
+        margin-top: 55px;
+        font-size: 26px;
+    }
+}
+
+@media (max-width: 480px) {
+    .content {
+        padding: 40px 16px 25px;
+    }
+
+    .title {
+        font-size: 28px;
+    }
+
+    .subtitle {
+        font-size: 18px;
+        margin-bottom: 30px;
+    }
+
+    .form {
+        max-width: 100%;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group input[type="password"] {
+        height: 48px;
+    }
+
+    .btn-submit.auth-btn {
+        width: 145px;
+        height: 58px;
+        margin-top: 45px;
+        font-size: 23px;
+    }
+}
