@@ -44,7 +44,7 @@ export default function Login() {
         onChange={setSenha}
       />
 
-      <Button className="authButton" type="button" disabled={!isValid} onClick={() => router.push("/forum")}>
+      <Button className="defaultButton" type="button" disabled={!isValid} onClick={() => router.push("/forum")}>
         OK
       </Button>
     </main>

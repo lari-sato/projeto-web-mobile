@@ -48,10 +48,9 @@ export default function Topics() {
   );
 
   function toggleTopic(topicName: string) {
-    setSelectedTopics((current) =>
-      current.includes(topicName)
-        ? current.filter((topic) => topic !== topicName)
-        : [...current, topicName],
+    setSelectedTopics((current) => current.includes(topicName)
+                                  ? current.filter((topic) => topic !== topicName)
+                                  : [...current, topicName],
     );
   }
 
@@ -113,7 +112,7 @@ export default function Topics() {
 
         <div className={styles.buttonContainer}>
           <Button
-            className="submitButton"
+            className="defaultButton"
             type="button"
             disabled={selectedTopics.length === 0}
             onClick={handleSearchTopics}

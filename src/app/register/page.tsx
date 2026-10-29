@@ -76,7 +76,7 @@ export default function Register() {
         onChange={(value) => setInstrutor(value === "instrutor")}
       />
 
-      <Button className="authButton" type="button" disabled={!isValid} onClick={() => router.push("/forum")}>
+      <Button className="defaultButton" type="button" disabled={!isValid} onClick={() => router.push("/forum")}>
         OK
       </Button>
     </main>
