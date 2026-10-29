@@ -48,12 +48,12 @@ export default function QuestionCard({
       />
 
       <section className={styles.questionInfo}>
-        <div className={styles.questionData}>
+        <section className={styles.questionData}>
           <p className={styles.questionUserName}>{question.name}</p>
 
-          <span className={styles.date}>{question.time} atrás</span>
+          <article className={styles.date}>{question.time} atrás</article>
 
-          <span
+          <article
             className={styles.topic}
             style={
               topicColor
@@ -66,8 +66,8 @@ export default function QuestionCard({
             }
           >
             {question.topic}
-          </span>
-        </div>
+          </article>
+        </section>
 
         <h3>{question.title}</h3>
         <p>{question.description}</p>

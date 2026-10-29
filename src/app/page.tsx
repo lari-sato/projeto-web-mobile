@@ -50,7 +50,7 @@ export default function Home() {
         <p className={styles.divider}>OU</p>
 
         <Button className="homeButton" type="button" onClick={() => router.push("/register")}>
-          Cadastarar
+          Cadastrar
         </Button>
       </div>
     </main>
