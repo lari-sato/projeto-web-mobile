@@ -23,6 +23,14 @@
     cursor: pointer;
 }
 
+.roleTitle {
+    width: 100%;
+    max-width: 351px;
+    margin: 0 auto 4px;
+    color: #065535;
+    font-size: 16px;
+}
+
 .checkboxCard span {
     color: #065535;
     font-size: 16px;
@@ -51,7 +59,19 @@
     outline-offset: 2px;
 }
 
+@media (max-width: 768px) {
+    .roleTitle {
+        max-width: 330px;
+        font-size: 14px;
+    }
+}
+
 @media (max-width: 480px) {
+    .roleTitle {
+        max-width: 100%;
+        font-size: 14px;
+    }
+
     .checkboxCard {
         min-height: 52px;
         padding: 8px 14px;

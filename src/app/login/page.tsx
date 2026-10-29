@@ -5,10 +5,20 @@
   Larissa Yuri Sato - RA: 10418318
 */
 
+"use client";
+
 import Link from "next/link";
-import styles from "../auth.module.css";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+import AuthForm from "../../components/authForm/AuthForm";
+import Button from "../../components/button/Button";
 
 export default function Login() {
+  const router = useRouter();
+  const [usuario, setUsuario] = useState("");
+  const [senha, setSenha] = useState("");
+  const isValid = usuario.trim() !== "" && senha.trim() !== "";
+
   return (
     <main className="content">
       <h1 className="title">Login</h1>
@@ -18,35 +28,25 @@ export default function Login() {
         <Link href="/register">Registre-se.</Link>
       </p>
 
-      <form className="form">
-        <div className="form-group">
-          <label htmlFor="usuario">USUÁRIO OU E-MAIL</label>
-          <input
-            type="text"
-            id="usuario"
-            name="usuario"
-            required
-          />
-        </div>
+      <AuthForm
+        id="usuario"
+        name="usuario"
+        label="USUÁRIO OU E-MAIL"
+        type="text"
+        onChange={setUsuario}
+      />
 
-        <div className="form-group">
-          <label htmlFor="senha">SENHA</label>
-          <input
-            type="password"
-            id="senha"
-            name="senha"
-            required
-          />
-        </div>
-
-        <button
-          className={styles.btnSubmit}
-          type="submit"
-          disabled
-        >
-          OK
-        </button>
-      </form>
+      <AuthForm
+        id="senha"
+        name="senha"
+        label="SENHA"
+        type="password"
+        onChange={setSenha}
+      />
+      
+      <Button type="button" disabled={!isValid} onClick={() => router.push("/forum")}>
+        OK
+      </Button>
     </main>
   );
 }

@@ -9,10 +9,14 @@
 
 import styles from "./button.module.css";
 
-export default function Button({ children, type = "submit", disabled }:
-  {children: React.ReactNode; type?: "button" | "submit" | "reset", disabled?: boolean}) {
+export default function Button({ children, type = "submit", disabled, onClick }:
+  {children: React.ReactNode; type?: "button" | "submit" | "reset", disabled?: boolean; onClick?: () => void}) {
   return (
-    <button type={type} className={styles.button} disabled={disabled}>
+    <button
+      type={type}
+      className={styles.button}
+      disabled={disabled}
+      onClick={onClick}>
       {children}
     </button>
   );
