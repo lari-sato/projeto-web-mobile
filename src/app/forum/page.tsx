@@ -1,10 +1,13 @@
 /*
-  Beatriz Lima de Oliveira - RA: 10416616
+  Beatriz Lima de Moura - RA: 10416616
   Giovana Simões Franco - RA: 10417646
   Julia Santos Oliveira - RA: 10417672
   Larissa Yuri Sato - RA: 10418318
 */
 
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./forum.module.css";
@@ -167,6 +170,37 @@ const topicColors: Record<
 };
 
 export default function Forum() {
+  const [search, setSearch] = useState("");
+  const [selectedTopic, setSelectedTopic] = useState("");
+  const [showTopicFilter, setShowTopicFilter] = useState(false);
+
+  const filteredQuestions = questions.filter((question) => {
+    const searchText = search
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .toLowerCase()
+      .trim();
+
+    const searchableText = [
+      question.name,
+      question.topic,
+      question.title,
+      question.description,
+    ]
+      .join(" ")
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .toLowerCase();
+
+    const matchesSearch = searchableText.includes(searchText);
+    const matchesTopic =
+      selectedTopic === "" || question.topic === selectedTopic;
+
+    return matchesSearch && matchesTopic;
+  });
+
+  const availableTopics = [...new Set(questions.map((q) => q.topic))];
+
   return (
     <div className={styles.container}>
       <header className={styles.header}>
@@ -181,7 +215,9 @@ export default function Forum() {
           />
         </Link>
 
-        <div className={`${componentsStyles.searchBar} ${styles.headerSearch}`}>
+        <div
+          className={`${componentsStyles.searchBar} ${styles.headerSearch}`}
+        >
           <input
             type="text"
             placeholder="Pesquise aqui..."
@@ -241,19 +277,50 @@ export default function Forum() {
         </article>
 
         <section className={styles.actions} aria-label="Ações do fórum">
-          <button className={styles.askQuestionButton} type="button">
+          <button
+            className={styles.askQuestionButton}
+            type="button"
+          >
             Fazer pergunta
           </button>
 
-          <button className={styles.filterButton} type="button">
+          <button
+            className={styles.filterButton}
+            type="button"
+            aria-expanded={showTopicFilter}
+            onClick={() =>
+              setShowTopicFilter((current) => !current)
+            }
+          >
             Filtrar por tópico
           </button>
+
+          {showTopicFilter && (
+            <select
+              className={styles.topicFilterSelect}
+              aria-label="Escolher tópico para filtrar"
+              value={selectedTopic}
+              onChange={(event) =>
+                setSelectedTopic(event.target.value)
+              }
+            >
+              <option value="">Todos os tópicos</option>
+
+              {availableTopics.map((topic) => (
+                <option key={topic} value={topic}>
+                  {topic}
+                </option>
+              ))}
+            </select>
+          )}
 
           <div className={styles.searchForum}>
             <input
               type="search"
               placeholder="Pesquisar no fórum..."
               aria-label="Pesquisar perguntas no fórum"
+              value={search}
+              onChange={(event) => setSearch(event.target.value)}
             />
           </div>
         </section>
@@ -261,11 +328,14 @@ export default function Forum() {
         <section className={styles.recentQuestions}>
           <h2>Perguntas recentes</h2>
 
-          {questions.map((question) => {
+          {filteredQuestions.map((question) => {
             const topicStyle = topicColors[question.topic];
 
             return (
-              <article className={styles.questionCard} key={question.name}>
+              <article
+                className={styles.questionCard}
+                key={question.name}
+              >
                 <Image
                   className={styles.questionUserImage}
                   src={`/assets/student-images/${question.image}`}
@@ -302,7 +372,10 @@ export default function Forum() {
                   <div className={styles.questionInteractions}>
                     <p>{question.responses} respostas</p>
                     <p>{question.likes} likes</p>
-                    <button className={styles.saveButton} type="button">
+                    <button
+                      className={styles.saveButton}
+                      type="button"
+                    >
                       Salvar
                     </button>
                   </div>
@@ -310,6 +383,12 @@ export default function Forum() {
               </article>
             );
           })}
+
+          {filteredQuestions.length === 0 && (
+            <p className={styles.noResults}>
+              Nenhuma pergunta encontrada.
+            </p>
+          )}
         </section>
       </main>
     </div>
