@@ -8,6 +8,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import Header from "@/components/header/Header";
 import TopicCard from "@/components/topicCard/TopicCard";
 import Button from "@/components/button/Button";
@@ -24,10 +25,7 @@ const topics = [
   { name: "Química", image: "topico-quimica.jpg" },
   { name: "Biologia", image: "topico-biologia.jpg" },
   { name: "Artes", image: "topico-artes.jpg" },
-  {
-    name: "Educação Financeira",
-    image: "topico-educacao-financeira.jpg",
-  },
+  { name: "Educação Financeira", image: "topico-educacao-financeira.jpg" },
   { name: "Programação", image: "topico-programacao.jpg" },
 ];
 
@@ -40,6 +38,7 @@ function normalizeText(text: string) {
 }
 
 export default function Topics() {
+  const router = useRouter();
   const [search, setSearch] = useState("");
   const [selectedTopics, setSelectedTopics] = useState<string[]>([]);
 
@@ -62,11 +61,7 @@ export default function Topics() {
       JSON.stringify(selectedTopics),
     );
 
-    console.log(
-      selectedTopics.length === 1
-        ? "1 tópico selecionado salvo!"
-        : `${selectedTopics.length} tópicos selecionados salvos!`,
-    );
+    router.push("/tutors");
   }
 
   return (

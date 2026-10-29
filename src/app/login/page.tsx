@@ -10,8 +10,8 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import AuthForm from "../../components/authForm/AuthForm";
-import Button from "../../components/button/Button";
+import AuthForm from "@/components/authForm/AuthForm";
+import Button from "@/components/button/Button";
 
 export default function Login() {
   const router = useRouter();

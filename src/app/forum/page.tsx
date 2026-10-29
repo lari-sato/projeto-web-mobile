@@ -9,7 +9,7 @@
 
 import { useState } from "react";
 import Header from "@/components/header/Header";
-import QuestionCard from "@/components/questionCard/questionCard";
+import QuestionCard from "@/components/questionCard/QuestionCard";
 import styles from "./forum.module.css";
 
 const questions = [

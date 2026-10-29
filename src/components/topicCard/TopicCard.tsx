@@ -31,16 +31,14 @@ export default function TopicCard({
       onClick={() => onToggle(name)}
     >
       <span className={styles.topicLabel}>
-        <span className={styles.imagePlaceholder}>
-          <Image
-            className={styles.topicImage}
-            src={`/assets/topics-images/${image}`}
-            alt=""
-            width={235}
-            height={180}
-          />
-        </span>
-
+        <Image
+          className={styles.topicImage}
+          src={`/assets/topics-images/${image}`}
+          alt=""
+          width={235}
+          height={180}
+        />
+        
         <span className={styles.topicName}>{name}</span>
       </span>
     </button>

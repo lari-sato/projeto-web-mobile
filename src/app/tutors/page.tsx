@@ -24,122 +24,122 @@ const tutors: Tutor[] = [
   {
     name: "Maria Cláudia Carvalho",
     image: "Maria-Claudia-Carvalho.jpg",
-    topics: ["Matemática", "Física", "Química"],
+    topics: ["Matemática", "Física", "Química"]
   },
   {
     name: "Caio Kimura",
     image: "Caio-Kimura.jpg",
-    topics: ["Programação", "Matemática", "Educação Financeira"],
+    topics: ["Programação", "Matemática", "Educação Financeira"]
   },
   {
     name: "Alice Mayumi",
     image: "Alice-Mayumi.jpg",
-    topics: ["Português", "Redação", "Inglês"],
+    topics: ["Português", "Redação", "Inglês"]
   },
   {
     name: "Juliane Magalhães",
     image: "Juliane-Magalhaes.jpg",
-    topics: ["História", "Geografia", "Artes"],
+    topics: ["História", "Geografia", "Artes"]
   },
   {
     name: "Dandára Souza",
     image: "Dandara-Souza.jpg",
-    topics: ["Português", "Redação", "Artes"],
+    topics: ["Português", "Redação", "Artes"]
   },
   {
     name: "Isaque Junior Tavares",
     image: "Isaque-Junior-Tavares.png",
-    topics: ["Matemática", "Física", "Programação"],
+    topics: ["Matemática", "Física", "Programação"]
   },
   {
     name: "Tati Matos",
     image: "Tati-Matos.jpg",
-    topics: ["Português", "Redação"],
+    topics: ["Português", "Redação"]
   },
   {
     name: "Roberto Almeida",
     image: "Roberto-Almeida.jpg",
-    topics: ["Programação", "Matemática"],
+    topics: ["Programação", "Matemática"]
   },
   {
     name: "Fernanda Motta",
     image: "Fernanda-Motta.jpg",
-    topics: ["Biologia", "Química", "Geografia"],
+    topics: ["Biologia", "Química", "Geografia"]
   },
   {
     name: "Rafael Campos",
     image: "Rafael-Campos.jpg",
-    topics: ["Biologia", "Química"],
+    topics: ["Biologia", "Química"]
   },
   {
     name: "Bruno Teixeira",
     image: "Bruno-Teixeira.jpg",
-    topics: ["História", "Geografia"],
+    topics: ["História", "Geografia"]
   },
   {
     name: "Otávio Flescher",
     image: "Otavio-Flescher.jpg",
-    topics: ["Física", "Química"],
+    topics: ["Física", "Química"]
   },
   {
     name: "Leticia Delgado",
     image: "Leticia-Delgado.jpg",
-    topics: ["Artes", "Português", "Redação"],
+    topics: ["Artes", "Português", "Redação"]
   },
   {
     name: "João Pedro da Silva",
     image: "Joao-Pedro.jpg",
-    topics: ["Inglês", "Redação"],
+    topics: ["Inglês", "Redação"]
   },
   {
     name: "Flávia Cornélio",
     image: "Flavia-Cornelio.jpg",
-    topics: ["Matemática", "Física"],
+    topics: ["Matemática", "Física"]
   },
   {
     name: "Natália Queiroz",
     image: "Natalia-Queiroz.jpg",
-    topics: ["Inglês", "Português", "Geografia"],
+    topics: ["Inglês", "Português", "Geografia"]
   },
   {
     name: "Lucas Oliveira",
     image: "Lucas-Oliveira.jpg",
-    topics: ["Matemática", "Física", "Química"],
+    topics: ["Matemática", "Física", "Química"]
   },
   {
     name: "Andréia Nunes",
     image: "Andreia-Nunes.jpg",
-    topics: ["Educação Financeira", "Matemática"],
+    topics: ["Educação Financeira", "Matemática"]
   },
   {
     name: "Joaquim Bezerra",
     image: "Joaquim-Bezerra.jpg",
-    topics: ["História", "Inglês"],
+    topics: ["História", "Inglês"]
   },
   {
     name: "Guilherme Otaviano Abreu",
     image: "Guilherme-Otaviano-Abreu.png",
-    topics: ["Educação Financeira"],
+    topics: ["Educação Financeira"]
   },
   {
     name: "Elaine Cristina Soares",
     image: "Elaine-Cristina-Soares.jpg",
-    topics: ["Biologia", "Química", "Geografia"],
+    topics: ["Biologia", "Química", "Geografia"]
   },
   {
     name: "Liliana Ferraz",
     image: "Liliana-Ferraz.jpg",
-    topics: ["Português", "Redação", "Artes"],
+    topics: ["Português", "Redação", "Artes"]
   },
   {
     name: "Reinaldo Reis",
     image: "Reinaldo-Reis.jpg",
-    topics: ["Programação", "Matemática", "Educação Financeira"],
+    topics: ["Programação", "Matemática", "Educação Financeira"]
   },
   {
     name: "Júlio Brandão",
     image: "Julio-Brandao.jpg",
-    topics: ["História", "Geografia", "Inglês"],
+    topics: ["História", "Geografia", "Inglês"]
   },
 ];
 
