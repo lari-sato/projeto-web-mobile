@@ -9,12 +9,12 @@
 
 import styles from "./button.module.css";
 
-export default function Button({ children, type = "submit", disabled, onClick }:
-  {children: React.ReactNode; type?: "button" | "submit" | "reset", disabled?: boolean; onClick?: () => void}) {
+export default function Button({ children, className, type = "submit", disabled, onClick }:
+  {children: React.ReactNode; className?: string; type?: "button" | "submit" | "reset", disabled?: boolean; onClick?: () => void}) {
   return (
     <button
       type={type}
-      className={styles.button}
+      className={className ? styles[className] : undefined}
       disabled={disabled}
       onClick={onClick}>
       {children}

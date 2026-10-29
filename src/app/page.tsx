@@ -5,11 +5,16 @@
   Larissa Yuri Sato - RA: 10418318
 */
 
+"use client";
+
+import { useRouter } from "next/navigation";
 import Image from "next/image";
-import Link from "next/link";
 import styles from "./page.module.css";
+import Button from "../components/button/Button";
 
 export default function Home() {
+  const router = useRouter();
+
   return (
     <main className={styles.homeContent}>
       <Image
@@ -38,15 +43,15 @@ export default function Home() {
       </section>
 
       <div className={styles.homeActions}>
-        <Link className={styles.homeButton} href="/login">
+        <Button className="homeButton" type="button" onClick={() => router.push("/login")}>
           Entrar
-        </Link>
+        </Button>
 
         <p className={styles.divider}>OU</p>
 
-        <Link className={styles.homeButton} href="/register">
-          Cadastrar
-        </Link>
+        <Button className="homeButton" type="button" onClick={() => router.push("/register")}>
+          Cadastarar
+        </Button>
       </div>
     </main>
   );
