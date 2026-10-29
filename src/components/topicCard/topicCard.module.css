@@ -1,0 +1,74 @@
+/*
+  Beatriz Lima de Moura - RA: 10416616
+  Giovana Simões Franco - RA: 10417646
+  Julia Santos Oliveira - RA: 10417672
+  Larissa Yuri Sato - RA: 10418318
+*/
+
+.topicCard {
+    width: 235px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    border: 2px solid transparent;
+    border-radius: 7px;
+    background: transparent;
+    font: inherit;
+    cursor: pointer;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.topicCard:hover {
+    transform: translateY(-3px);
+}
+
+.topicCard:focus-visible {
+    outline: 2px solid #098553;
+    outline-offset: 3px;
+}
+
+.topicCard.selected {
+    border-color: #065535;
+    background-color: #eaf7e5;
+}
+
+.topicCard.selected .topicName {
+    font-weight: bold;
+}
+
+.topicCard.selected .imagePlaceholder {
+    border-width: 3px;
+}
+
+.topicLabel {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.imagePlaceholder {
+    width: 235px;
+    height: 180px;
+    border: 2px solid #065535;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.topicImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.topicName {
+    margin-top: 8px;
+    font-size: 16px;
+    font-weight: normal;
+    color: #065535;
+    text-align: center;
+}

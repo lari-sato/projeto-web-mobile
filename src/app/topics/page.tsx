@@ -9,9 +9,9 @@
 
 import { useState } from "react";
 import Header from "@/components/header/Header";
-import Image from "next/image";
+import TopicCard from "@/components/topicCard/TopicCard";
+import Button from "@/components/button/Button";
 import styles from "./topics.module.css";
-import componentsStyles from "../components.module.css";
 
 const topics = [
   { name: "Matemática", image: "topico-matematica.jpg" },
@@ -86,35 +86,15 @@ export default function Topics() {
           className={styles.topicsGrid}
           aria-label="Lista de tópicos"
         >
-          {filteredTopics.map((topic) => {
-            const isSelected = selectedTopics.includes(topic.name);
-
-            return (
-              <button
-                className={`${styles.topicCard} ${
-                  isSelected ? styles.selected : ""
-                }`}
-                key={topic.name}
-                type="button"
-                aria-pressed={isSelected}
-                onClick={() => toggleTopic(topic.name)}
-              >
-                <span className={styles.topicLabel}>
-                  <span className={styles.imagePlaceholder}>
-                    <Image
-                      className={styles.topicImage}
-                      src={`/assets/topics-images/${topic.image}`}
-                      alt=""
-                      width={235}
-                      height={180}
-                    />
-                  </span>
-
-                  <span className={styles.topicName}>{topic.name}</span>
-                </span>
-              </button>
-            );
-          })}
+          {filteredTopics.map((topic) => (
+            <TopicCard
+              key={topic.name}
+              name={topic.name}
+              image={topic.image}
+              isSelected={selectedTopics.includes(topic.name)}
+              onToggle={toggleTopic}
+            />
+          ))}
         </section>
 
         {filteredTopics.length === 0 && (
@@ -132,14 +112,14 @@ export default function Topics() {
         </p>
 
         <div className={styles.buttonContainer}>
-          <button
-            className={`${componentsStyles.btnSubmit} ${styles.submitButton}`}
+          <Button
+            className="submitButton"
             type="button"
             disabled={selectedTopics.length === 0}
             onClick={handleSearchTopics}
           >
             Buscar Tópicos
-          </button>
+          </Button>
         </div>
       </main>
     </div>

@@ -9,6 +9,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Header from "@/components/header/Header";
+import TutorCard from "@/components/tutorCard/TutorCard";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./tutors.module.css";
@@ -219,7 +220,12 @@ export default function Tutors() {
 
   return (
     <div className={styles.container}>
-      <Header activePage="tutors" searchValue={search} onSearchChange={handleSearchChange} searchLabel="Pesquisar tutor" />
+      <Header
+        activePage="tutors"
+        searchValue={search}
+        onSearchChange={handleSearchChange}
+        searchLabel="Pesquisar tutor"
+      />
 
       <main className={`content ${styles.content}`}>
         <h1 className="title">Tutores disponíveis</h1>
@@ -237,31 +243,13 @@ export default function Tutors() {
 
         <section className={styles.tutors} aria-label="Lista de tutores">
           {visibleTutors.map((tutor) => (
-            <article className={styles.tutorCard} key={tutor.name}>
-              <label className={styles.tutorLabel}>
-                <input
-                  className={styles.tutorRadio}
-                  type="checkbox"
-                  name="tutor"
-                  value={tutor.name}
-                  checked={selectedTutor === tutor.name}
-                  onChange={(event) =>
-                    handleTutorSelection(tutor.name, event.target.checked)
-                  }
-                  aria-label={`Selecionar ${tutor.name}`}
-                />
-
-                <Image
-                  className={styles.tutorImage}
-                  src={`/assets/tutor-images/${tutor.image}`}
-                  alt={`Foto de ${tutor.name}`}
-                  width={235}
-                  height={245}
-                />
-
-                <h3 className={styles.tutorName}>{tutor.name}</h3>
-              </label>
-            </article>
+            <TutorCard
+              key={tutor.name}
+              name={tutor.name}
+              image={tutor.image}
+              isSelected={selectedTutor === tutor.name}
+              onSelect={handleTutorSelection}
+            />
           ))}
 
           {visibleTutors.length === 0 && (

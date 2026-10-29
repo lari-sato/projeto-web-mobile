@@ -9,7 +9,7 @@
 
 import { useState } from "react";
 import Header from "@/components/header/Header";
-import Image from "next/image";
+import QuestionCard from "@/components/questionCard/questionCard";
 import styles from "./forum.module.css";
 
 const questions = [
@@ -267,61 +267,13 @@ export default function Forum() {
         <section className={styles.recentQuestions}>
           <h2>Perguntas recentes</h2>
 
-          {filteredQuestions.map((question) => {
-            const topicStyle = topicColors[question.topic];
-
-            return (
-              <article
-                className={styles.questionCard}
-                key={question.name}
-              >
-                <Image
-                  className={styles.questionUserImage}
-                  src={`/assets/student-images/${question.image}`}
-                  alt={`Foto de ${question.name}`}
-                  width={50}
-                  height={50}
-                />
-
-                <section className={styles.questionInfo}>
-                  <div className={styles.questionData}>
-                    <p className={styles.questionUserName}>
-                      {question.name}
-                    </p>
-
-                    <span className={styles.date}>
-                      {question.time} atrás
-                    </span>
-
-                    <span
-                      className={styles.topic}
-                      style={{
-                        backgroundColor: topicStyle.background,
-                        borderColor: topicStyle.border,
-                        color: topicStyle.border,
-                      }}
-                    >
-                      {question.topic}
-                    </span>
-                  </div>
-
-                  <h3>{question.title}</h3>
-                  <p>{question.description}</p>
-
-                  <div className={styles.questionInteractions}>
-                    <p>{question.responses} respostas</p>
-                    <p>{question.likes} likes</p>
-                    <button
-                      className={styles.saveButton}
-                      type="button"
-                    >
-                      Salvar
-                    </button>
-                  </div>
-                </section>
-              </article>
-            );
-          })}
+          {filteredQuestions.map((question) => (
+            <QuestionCard
+              key={question.name}
+              question={question}
+              topicColor={topicColors[question.topic]}
+            />
+          ))}
 
           {filteredQuestions.length === 0 && (
             <p className={styles.noResults}>
