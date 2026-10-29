@@ -8,10 +8,9 @@
 "use client";
 
 import { useState } from "react";
+import Header from "@/components/header/Header";
 import Image from "next/image";
-import Link from "next/link";
 import styles from "./forum.module.css";
-import componentsStyles from "../components.module.css";
 
 const questions = [
   {
@@ -203,67 +202,7 @@ export default function Forum() {
 
   return (
     <div className={styles.container}>
-      <header className={styles.header}>
-        <Link href="/" aria-label="Página inicial">
-          <Image
-            className={styles.logo}
-            src="/assets/logo.png"
-            alt="Logo Reforço Comunitário"
-            width={80}
-            height={50}
-            priority
-          />
-        </Link>
-
-        <div
-          className={`${componentsStyles.searchBar} ${styles.headerSearch}`}
-        >
-          <input
-            type="text"
-            placeholder="Pesquise aqui..."
-            aria-label="Pesquisar no site"
-          />
-        </div>
-
-        <nav className={styles.navigation}>
-          <Link
-            className={`${styles.navigationButton} ${styles.active}`}
-            href="/"
-            aria-current="page"
-          >
-            <Image
-              className={styles.navigationIcon}
-              src="/assets/initial.png"
-              alt=""
-              width={18}
-              height={18}
-            />
-            Início
-          </Link>
-
-          <Link className={styles.navigationButton} href="/topics">
-            <Image
-              className={styles.navigationIcon}
-              src="/assets/topics.png"
-              alt=""
-              width={18}
-              height={18}
-            />
-            Tópicos
-          </Link>
-
-          <Link className={styles.navigationButton} href="/tutors">
-            <Image
-              className={styles.navigationIcon}
-              src="/assets/tutors.png"
-              alt=""
-              width={18}
-              height={18}
-            />
-            Tutores
-          </Link>
-        </nav>
-      </header>
+      <Header activePage="forum" />
 
       <main className={`content ${styles.content}`}>
         <article className={styles.banner}>

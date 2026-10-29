@@ -1,0 +1,116 @@
+/*
+  Beatriz Lima de Moura - RA: 10416616
+  Giovana Simões Franco - RA: 10417646
+  Julia Santos Oliveira - RA: 10417672
+  Larissa Yuri Sato - RA: 10418318
+*/
+
+.header {
+  min-height: 70px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 10px 20px;
+  background-color: #a0db8e;
+}
+
+.logo {
+  display: block;
+  width: 80px;
+  height: auto;
+  object-fit: contain;
+}
+
+.searchBar {
+  width: 100%;
+  max-width: 600px;
+  margin-left: auto;
+  border: 2px solid #098553;
+  background-color: #fff;
+}
+
+.searchBar input {
+  width: 100%;
+  height: 40px;
+  padding: 0 12px;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #065535;
+  font-family: Poppins, sans-serif;
+  font-size: 14px;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 22px;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.navigationButton {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #065535;
+  font-family: Poppins, sans-serif;
+  font-size: 14px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.navigationButton:hover,
+.navigationButton.active {
+  text-decoration: underline;
+}
+
+.navigationButton.active {
+  font-weight: bold;
+}
+
+.navigationIcon {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+@media (max-width: 900px) {
+  .header {
+    flex-wrap: wrap;
+  }
+
+  .searchBar {
+    order: 3;
+    max-width: none;
+  }
+
+  .navigation {
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    justify-content: center;
+    padding: 10px 16px;
+  }
+
+  .logo {
+    width: 70px;
+  }
+
+  .navigation {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .navigationButton {
+    font-size: 13px;
+  }
+}
