@@ -63,7 +63,7 @@ JavaScript
 ```
 
 ## 👥 Integrantes
-- Beatriz Lima de Oliveira
+- Beatriz Lima de Moura
 - Giovana Simões Franco
 - Julia Santos Oliveira
 - Larissa Yuri Sato
