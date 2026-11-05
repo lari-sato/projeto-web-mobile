@@ -15,6 +15,7 @@ type TutorCardProps = {
   image: string;
   isSelected: boolean;
   onSelect: (name: string, checked: boolean) => void;
+  priority?: boolean;
 };
 
 export default function TutorCard({
@@ -22,6 +23,7 @@ export default function TutorCard({
   image,
   isSelected,
   onSelect,
+  priority = false,
 }: TutorCardProps) {
   return (
     <article
@@ -44,6 +46,7 @@ export default function TutorCard({
           alt={`Foto de ${name}`}
           width={235}
           height={245}
+          loading={priority ? "eager" : "lazy"}
         />
 
         <h3 className={styles.tutorName}>{name}</h3>

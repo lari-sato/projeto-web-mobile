@@ -81,7 +81,7 @@
     align-items: center;
     width: 100%;
     min-height: 180px;
-    background-image: url("/assets/forum-banner.png");
+    background-image: url("/assets/banner/forum-banner.png");
     background-size: cover;
     background-position: center;
     border-radius: 10px;

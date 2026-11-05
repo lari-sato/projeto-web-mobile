@@ -11,6 +11,9 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Reforço Comunitário",
   description: "Projeto de reforço comunitário e apoio à educação.",
+  icons: {
+    icon: "/assets/icons/logo2.png",
+  },
 };
 
 export default function RootLayout({

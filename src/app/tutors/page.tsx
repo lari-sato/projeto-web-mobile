@@ -242,13 +242,14 @@ export default function Tutors() {
         )}
 
         <section className={styles.tutors} aria-label="Lista de tutores">
-          {visibleTutors.map((tutor) => (
+          {visibleTutors.map((tutor, index) => (
             <TutorCard
               key={tutor.name}
               name={tutor.name}
               image={tutor.image}
               isSelected={selectedTutor === tutor.name}
               onSelect={handleTutorSelection}
+              priority={index === 0}
             />
           ))}
 
@@ -269,7 +270,7 @@ export default function Tutors() {
             disabled={page <= 1 || totalPages === 0}
           >
             <Image
-              src="/assets/arrow-left.svg"
+              src="/assets/icons/arrow-left.svg"
               alt=""
               width={40}
               height={40}
@@ -289,19 +290,13 @@ export default function Tutors() {
             disabled={page >= totalPages || totalPages === 0}
           >
             <Image
-              src="/assets/arrow-right.svg"
+              src="/assets/icons/arrow-right.svg"
               alt=""
               width={40}
               height={40}
             />
           </button>
         </nav>
-
-        {selectedTutor && (
-          <p className={styles.selectionInfo} aria-live="polite">
-            Tutor selecionado: {selectedTutor}
-          </p>
-        )}
 
         <div className={styles.backContainer}>
           <Link className={styles.backButton} href="/topics">

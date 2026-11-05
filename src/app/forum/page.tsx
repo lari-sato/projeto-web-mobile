@@ -151,7 +151,7 @@ const topicColors: Record<
   string,
   { background: string; border: string }
 > = {
-  Matemática: { background: "#90c2ee", border: "#03405c46" },
+  Matemática: { background: "#90c2ee", border: "#2f5f86" },
   Português: { background: "#d88484", border: "#500606" },
   Redação: { background: "#f0acce", border: "#36192d" },
   História: { background: "#e4a052", border: "#52210a" },
