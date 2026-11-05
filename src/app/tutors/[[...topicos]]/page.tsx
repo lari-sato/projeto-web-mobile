@@ -7,12 +7,13 @@
 
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { Suspense, useMemo, useState } from "react";
+import { useParams } from "next/navigation";
 import Header from "@/components/header/Header";
 import TutorCard from "@/components/tutorCard/TutorCard";
 import Image from "next/image";
 import Link from "next/link";
-import styles from "./tutors.module.css";
+import styles from "../tutors.module.css";
 
 type Tutor = {
   name: string;
@@ -144,6 +145,7 @@ const tutors: Tutor[] = [
 ];
 
 const TUTORS_PER_PAGE = 12;
+const EMPTY_ROUTE_TOPICS: string[] = [];
 
 function normalizeText(text: string) {
   return text
@@ -153,37 +155,34 @@ function normalizeText(text: string) {
     .trim();
 }
 
-export default function Tutors() {
+function createSlug(text: string) {
+  return normalizeText(text).replace(/\s+/g, "-");
+}
+
+function TutorsContent() {
+  const params = useParams<{ topicos?: string[] }>();
+  const routeTopics = params.topicos ?? EMPTY_ROUTE_TOPICS;
+
   const [search, setSearch] = useState("");
-  const [selectedTopics, setSelectedTopics] = useState<string[]>([]);
   const [selectedTutor, setSelectedTutor] = useState<string | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
 
-  useEffect(() => {
-    try {
-      const savedTopics = sessionStorage.getItem("topicosSelecionados");
+  const allTopics = useMemo(
+    () => Array.from(new Set(tutors.flatMap((tutor) => tutor.topics))),
+    [],
+  );
 
-      if (savedTopics) {
-        const parsedTopics: unknown = JSON.parse(savedTopics);
-
-        if (
-          Array.isArray(parsedTopics) &&
-          parsedTopics.every((topic) => typeof topic === "string")
-        ) {
-          setSelectedTopics(parsedTopics);
-        }
-      }
-    } catch {
-      setSelectedTopics([]);
-    }
-  }, []);
+  const selectedTopics = useMemo(
+    () => allTopics.filter((topic) => routeTopics.includes(createSlug(topic))),
+    [allTopics, routeTopics],
+  );
 
   const filteredTutors = useMemo(() => {
     const normalizedSearch = normalizeText(search);
 
     return tutors.filter((tutor) => {
       const matchesTopic =
-        selectedTopics.length === 0 ||
+        routeTopics.length === 0 ||
         selectedTopics.some((topic) => tutor.topics.includes(topic));
 
       const matchesSearch = normalizeText(tutor.name).includes(
@@ -192,7 +191,7 @@ export default function Tutors() {
 
       return matchesTopic && matchesSearch;
     });
-  }, [search, selectedTopics]);
+  }, [search, routeTopics, selectedTopics]);
 
   const totalPages = Math.ceil(filteredTutors.length / TUTORS_PER_PAGE);
 
@@ -305,5 +304,13 @@ export default function Tutors() {
         </div>
       </main>
     </div>
+  );
+}
+
+export default function Tutors() {
+  return (
+    <Suspense fallback={<div className={styles.container}>Carregando tutores...</div>}>
+      <TutorsContent />
+    </Suspense>
   );
 }

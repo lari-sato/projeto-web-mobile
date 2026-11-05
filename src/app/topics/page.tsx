@@ -37,6 +37,10 @@ function normalizeText(text: string) {
     .trim();
 }
 
+function createSlug(text: string) {
+  return normalizeText(text).replace(/\s+/g, "-");
+}
+
 export default function Topics() {
   const router = useRouter();
   const [search, setSearch] = useState("");
@@ -56,12 +60,11 @@ export default function Topics() {
   function handleSearchTopics() {
     if (selectedTopics.length === 0) return;
 
-    sessionStorage.setItem(
-      "topicosSelecionados",
-      JSON.stringify(selectedTopics),
-    );
+    const topicPath = selectedTopics
+      .map((topic) => createSlug(topic))
+      .join("/");
 
-    router.push("/tutors");
+    router.push(`/tutors/${topicPath}`);
   }
 
   return (
