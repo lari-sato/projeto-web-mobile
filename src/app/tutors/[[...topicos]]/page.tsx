@@ -41,17 +41,17 @@ function TutorsContent() {
   const routeTopics = params.topicos ?? EMPTY_ROUTE_TOPICS;
 
   const [tutors, setTutors] = useState<Tutor[]>([]);
-  const [carregando, setCarregando] = useState(true);
-  const [erro, setErro] = useState("");
-  const [tentativa, setTentativa] = useState(0);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+  const [tryCount, setTryCount] = useState(0);
   const [search, setSearch] = useState("");
   const [selectedTutor, setSelectedTutor] = useState<string | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
-    async function carregarTutores() {
-      setCarregando(true);
-      setErro("");
+    async function loadTutors() {
+      setLoading(true);
+      setError("");
       setTutors([]);
 
       try {
@@ -69,14 +69,14 @@ function TutorsContent() {
 
         setTutors(dados);
       } catch {
-        setErro("Não foi possível carregar os tutores. Verifique a API e tente novamente.");
+        setError("Não foi possível carregar os tutores. Verifique a API e tente novamente.");
       } finally {
-        setCarregando(false);
+        setLoading(false);
       }
     }
 
-    carregarTutores();
-  }, [tentativa]);
+    loadTutors();
+  }, [tryCount]);
 
   const allTopics = useMemo(
     () => Array.from(new Set(tutors.flatMap((tutor) => tutor.topics))),
@@ -145,26 +145,26 @@ function TutorsContent() {
           ou receber orientação.
         </p>
 
-        {carregando && (
-          <p className={styles.emptyMessage} role="status">
+        {loading && (
+          <p className="emptyMessage" role="status">
             Carregando tutores...
           </p>
         )}
 
-        {!carregando && erro && (
-          <div className={styles.emptyMessage} role="alert">
-            <p>{erro}</p>
+        {!loading && error && (
+          <div className="emptyMessage" role="alert">
+            <p>{error}</p>
             <button
-              className={styles.retryButton}
+              className="retryButton"
               type="button"
-              onClick={() => setTentativa((atual) => atual + 1)}
+              onClick={() => setTryCount((atual) => atual + 1)}
             >
               Tentar novamente
             </button>
           </div>
         )}
 
-        {!carregando && !erro && (
+        {!loading && !error && (
           <>
             {selectedTopics.length > 0 && (
               <p className={styles.filterInfo} aria-live="polite">

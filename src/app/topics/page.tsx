@@ -7,27 +7,17 @@
 
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Header from "@/components/header/Header";
 import TopicCard from "@/components/topicCard/TopicCard";
 import Button from "@/components/button/Button";
 import styles from "./topics.module.css";
 
-const topics = [
-  { name: "Matemática", image: "topico-matematica.jpg" },
-  { name: "Português", image: "topico-portugues.jpg" },
-  { name: "Redação", image: "topico-redacao.jpg" },
-  { name: "História", image: "topico-historia.jpg" },
-  { name: "Geografia", image: "topico-geografia.jpg" },
-  { name: "Inglês", image: "topico-ingles.jpg" },
-  { name: "Física", image: "topico-fisica.jpg" },
-  { name: "Química", image: "topico-quimica.jpg" },
-  { name: "Biologia", image: "topico-biologia.jpg" },
-  { name: "Artes", image: "topico-artes.jpg" },
-  { name: "Educação Financeira", image: "topico-educacao-financeira.jpg" },
-  { name: "Programação", image: "topico-programacao.jpg" },
-];
+type Topic = {
+  name: string;
+  image: string;
+};
 
 function normalizeText(text: string) {
   return text
@@ -44,7 +34,41 @@ function createSlug(text: string) {
 export default function Topics() {
   const router = useRouter();
   const [search, setSearch] = useState("");
+  const [topics, setTopics] = useState<Topic[]>([]);
   const [selectedTopics, setSelectedTopics] = useState<string[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+  const [tryCount, setTryCount] = useState(0);
+
+  useEffect(() => {
+      async function loadTopics() {
+        setLoading(true);
+        setError("");
+        setSelectedTopics([]);
+  
+        try {
+          const resposta = await fetch("/api/topics", { method: "GET" });
+  
+          if (!resposta.ok) {
+            throw new Error(`HTTP ${resposta.status}`);
+          }
+  
+          const dados: Topic[] = await resposta.json();
+  
+          if (!Array.isArray(dados)) {
+            throw new Error("Resposta inesperada da API.");
+          }
+  
+          setTopics(dados);
+        } catch {
+          setError("Não foi possível carregar os tópicos. Verifique a API e tente novamente.");
+        } finally {
+          setLoading(false);
+        }
+      }
+  
+      loadTopics();
+    }, [tryCount]);
 
   const filteredTopics = topics.filter((topic) =>
     normalizeText(topic.name).includes(normalizeText(search)),
@@ -79,25 +103,48 @@ export default function Topics() {
           e tutores relacionados.
         </p>
 
-        <section
-          className={styles.topicsGrid}
-          aria-label="Lista de tópicos"
-        >
-          {filteredTopics.map((topic) => (
-            <TopicCard
-              key={topic.name}
-              name={topic.name}
-              image={topic.image}
-              isSelected={selectedTopics.includes(topic.name)}
-              onToggle={toggleTopic}
-            />
-          ))}
-        </section>
-
-        {filteredTopics.length === 0 && (
-          <p className={styles.emptyMessage}>
-            Nenhum tópico encontrado.
+        {loading && (
+          <p className="emptyMessage" role="status">
+            Carregando tópicos...
           </p>
+        )}
+
+        {!loading && error && (
+          <div className="emptyMessage" role="alert">
+            <p>{error}</p>
+            <button
+              className="retryButton"
+              type="button"
+              onClick={() => setTryCount((atual) => atual + 1)}
+            >
+              Tentar novamente
+            </button>
+          </div>
+        )}
+
+        {!loading && !error && (
+          <>
+            <section
+              className={styles.topicsGrid}
+              aria-label="Lista de tópicos"
+            >
+              {filteredTopics.map((topic) => (
+                <TopicCard
+                  key={topic.name}
+                  name={topic.name}
+                  image={topic.image}
+                  isSelected={selectedTopics.includes(topic.name)}
+                  onToggle={toggleTopic}
+                />
+              ))}
+            </section>
+
+            {filteredTopics.length === 0 && (
+              <p className="emptyMessage">
+                Nenhum tópico encontrado.
+              </p>
+            )}
+          </>
         )}
 
         <p className={styles.selectionCount} aria-live="polite">
